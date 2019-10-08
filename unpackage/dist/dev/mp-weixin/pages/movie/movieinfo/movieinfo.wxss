@@ -1,0 +1,89 @@
+
+#myVideo {
+	position: fixed;
+	top: 0;
+	display: block;
+	width: 100%;
+	height: 450rpx;
+}
+.movie-datail-middle-introduction {
+	margin-top: 450rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.movie-name {
+	font-size: 35rpx;
+	font-weight: 600;
+	margin-top: 25rpx;
+	margin-left: 20rpx;
+}
+.movie-st {
+	font-size: 25rpx;
+	margin-top: 18rpx;
+}
+.movie-score {
+	display: inline-block;
+	color: red;
+	width: 100rpx;
+	margin-left: 20rpx;
+}
+.movie-time {
+	margin-left: 10rpx;
+}
+.horizon-line {
+	width: 95%;
+	height: 1px;
+	background-color: #E6E6E6;
+	margin: 15px auto;
+}
+.picture-list-name {
+	font-size: 35rpx;
+	font-weight: 600;
+	margin-left: 20rpx;
+	margin-bottom: 20rpx;
+}
+.picture-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	margin-left: 15rpx;
+	/* justify-content: space-around; */
+}
+image {
+	display: inline-block;
+	width: 235rpx;
+	height: 180rpx;
+	margin-right: 8rpx;
+}
+.movie-datail-bottom-buytickets {
+	position: fixed;
+	bottom: 10rpx;
+	width: 100%;
+	margin: 0 auto;
+}
+.buy-tickets-button {
+	width: 700rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	color: white;
+	font-size: 35rpx;
+	background-color: red;
+	border-radius: 40rpx;
+}
+

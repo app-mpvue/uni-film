@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "price-card": "/pages/me/checkin/priceCard"
+  }
+}

@@ -2,22 +2,22 @@
 <template>
 	<view>
 		<view class="movie-datail-top-video">
-		    <video id="myVideo" src="http://gslb.miguyyvod.lovev.com/depository_yqv/asset/zhengshi/1003/967/649/1003967649/media/1003967649_1018319712_455.mp4?msisdn=20190927015623&amp;mdspid=&amp;spid=800033&amp;netType=0&amp;sid=1503303281&amp;pid=2028594089&amp;timestamp=20190927015623&amp;Channel_ID=0116_25000000-99000-100300010010001&amp;ProgramID=662080194&amp;ParentNodeID=-99&amp;assertID=1503303281&amp;client_ip=1.86.54.128&amp;SecurityKey=20190927015623&amp;promotionId=&amp;mvid=1003967649&amp;mcid=1000&amp;mpid=130000099021&amp;playurlVersion=MV-SJ-H1-0.0.3&amp;userid=&amp;jmhm=&amp;videocodec=h264&amp;encrypt=f5c9cc2716e0b66606c8c13d0b380da3"
+		    <video id="myVideo" :src="moviePath" 
 		        @error="videoErrorCallback()"></video>
 		</view>
 		
 		<view class="movie-datail-middle-introduction">
-			<view class="movie-name">罗小黑战记</view>
+			<view class="movie-name">{{movieName}}</view>
 			<view class="movie-st">
-				<span class="movie-score">9.1分</span>
-				<span class="movie-time">2019-06-27（内地）</span>
+				<span class="movie-score">{{movieScore}}</span>
+				<span class="movie-time">{{movieTime}}</span>
 			</view>
 			
 			<view class="horizon-line"></view>
 			
 			<view class="picture-list-name">视频剧照</view>
 			<view class="picture-list">
-				<image src="../../../static/picture-list/s1.jpg"></image>
+				<image :src="movieImg"></image>
 				<image src="../../../static/picture-list/s2.jpg"></image>
 				<image src="../../../static/picture-list/s3.jpg"></image>
 			</view>
@@ -33,7 +33,12 @@
 	export default {
 	    data() {
 	        return {
-	            
+	            movieActor: '',
+			    moviePath: '',
+				movieTime: '',
+				movieScore: '',
+				movieName: '',
+				movieImg: ''
 			}
 	    },
 	    onReady: function(res) {
@@ -41,6 +46,9 @@
 	        this.videoContext = uni.createVideoContext('myVideo')
 	        // #endif
 	    },
+		onLoad: function(option) {
+		  this.getHomepage()
+		},
 	    methods: {
 	        videoErrorCallback: function(e) {
 	            uni.showModal({
@@ -48,6 +56,21 @@
 	                showCancel: false
 	            })
 	        },
+			getHomepage() {
+			  var that = this
+			  uni.request({
+			    url: 'http://45.76.105.46:8080/movie/movieDetail?movieId=1',
+			    method: 'GET',
+			    success(res) {
+			      console.log(res.data.result)
+				  that.movieName = res.data.result.movieName
+				  that.moviePath = res.data.result.moviePath
+				  that.movieTime = res.data.result.movieTime
+				  that.movieScore = res.data.result.movieScore
+				  that.moviePath = res.data.result.moviePath
+			    }
+			  })
+			}
 	    }
 	}
 </script>
