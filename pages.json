@@ -30,7 +30,10 @@
 			"path":"pages/me/order/order"
 		},
 		{
-			"path":"pages/movie/movie"
+			"path":"pages/movie/movie",
+			"style": {
+				"titleNView":false
+			}
 		},
 		{
 			"path":"pages/movie/movieinfo/movieinfo"

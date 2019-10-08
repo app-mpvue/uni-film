@@ -1,9 +1,9 @@
 <!-- create by lijk -->
 <template>
 	<view>
-		<!-- ËÑË÷¿òÓëÍ¼±ê²¿·Ö -->
+		<!-- æœç´¢æ¡†ä¸å›¾æ ‡éƒ¨åˆ† -->
 		<view class="container1">
-			<!-- ËÑË÷¿ò×é¼ş -->
+			<!-- æœç´¢æ¡†ç»„ä»¶ -->
 			<view class="content">
 				<uni-search :iconSrc="iconSrc" :inputAttr="inputAttr">
 					<!-- <template v-slot:icon>
@@ -14,7 +14,7 @@
 				</uni-search>
 			</view>
 
-			<!-- ÏÂÔØºÍÀúÊ·¼ÇÂ¼Í¼±ê -->
+			<!-- ä¸‹è½½å’Œå†å²è®°å½•å›¾æ ‡ -->
 			<view class="icons">
 				<image src="../../static/lee-search/download24x24.png"></image>
 			</view>
@@ -23,16 +23,16 @@
 			</view>
 		</view>
 		
-		<!-- Æ¬¿â°´Å¥ -->
+		<!-- ç‰‡åº“æŒ‰é’® -->
 		<view class="orderStatue">
-			<button class="orderStatueItem" style="color: red;">Æ¬¿â</button>
-			<button class="orderStatueItem" >¿´Æ¬ÍÆ¼ö</button>
-			<button class="orderStatueItem">Ğ¡ÊÓÆµ</button>
+			<button class="orderStatueItem" style="color: red;">ç‰‡åº“</button>
+			<button class="orderStatueItem" >çœ‹ç‰‡æ¨è</button>
+			<button class="orderStatueItem">å°è§†é¢‘</button>
 		</view>
 		
-		<!-- µçÓ°º£±¨ÁĞ±í-->
+		<!-- ç”µå½±æµ·æŠ¥åˆ—è¡¨-->
 		<view class="movie-list page-block">
-			<!-- µçÓ°º£±¨ -->
+			<!-- ç”µå½±æµ·æŠ¥ -->
 			<view class="poster-wapper" v-for="trailer in trailerList">
 				<!-- <navigator open-type="navigate" :url="'../movie/movie?trailerId=' + superhero.id"> -->
 				<navigator open-type="navigate" :url="'../movie/movieinfo/movieinfo?movieId=' + trailer.movieId">
@@ -44,12 +44,12 @@
 				
 				<!-- </navigator> -->
 				
-				<!-- µçÓ°Ãû³Æ -->
+				<!-- ç”µå½±åç§° -->
 				<view class="movie-name" style="text-align: center;">
 						{{trailer.movieName}}
 				</view>
 					<!-- <trailerStars :innerScore="superhero.score" showNum="1"></trailerStars> -->
-				<!-- µçÓ°ÆÀ·Ö -->
+				<!-- ç”µå½±è¯„åˆ† -->
 				<view class="movie-score-wapper">
 					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
 					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
@@ -85,7 +85,7 @@ export default {
 			},
 			inputAttr: {
 				backgroundColor: '#f2f2f2',
-				placeholderText: 'ËÑË÷Ó°Æ¬ºÍÓ°ÈË'
+				placeholderText: 'æœç´¢å½±ç‰‡å’Œå½±äºº'
 			},
 			trailerList: []
 		};
@@ -94,17 +94,17 @@ export default {
 		var me = this;
 		uni.showLoading({
 			mask: true,
-			title:"ÇëÉÔºó..."
+			title:"è¯·ç¨å..."
 		});
 		uni.showNavigationBarLoading();
 	
 		var serverUrl = me.serverUrl;
-		// ²éÑ¯Êı¾İÁĞ±í
+		// æŸ¥è¯¢æ•°æ®åˆ—è¡¨
 		uni.request({
 			url: serverUrl + '/movie/movieList',
 			method: "GET",
 			success: (res) => {
-				// »ñÈ¡ÕæÊµÊı¾İÖ®Ç°£¬Îñ±ØÅĞ¶Ï×´Ì¬ÊÇ·ñÎª200
+				// è·å–çœŸå®æ•°æ®ä¹‹å‰ï¼ŒåŠ¡å¿…åˆ¤æ–­çŠ¶æ€æ˜¯å¦ä¸º200
 				if (res.data.status == 200) {
 					// debugger;
 					var trailerList = res.data.result;
@@ -193,7 +193,7 @@ export default {
 		margin-top: 10upx;
 		font-size: 14px;
 		font-weight: bold;
-		/* name³¬³öÔòÊ¡ÂÔ */
+		/* nameè¶…å‡ºåˆ™çœç•¥ */
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
