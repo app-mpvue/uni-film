@@ -4,7 +4,7 @@ import App from './App'
 import store from './store'
 
 Vue.config.productionTip = false
-
+Vue.prototype.serverUrl ="http://45.76.105.46:8080";
 Vue.prototype.$store = store
 
 App.mpType = 'app'
