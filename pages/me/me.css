@@ -67,11 +67,11 @@
 .userSign {
 	margin-top: 25upx;
 	margin-right: 30upx;
-	background-size: 7px;
+	/* background-size: 7px; */
 	border-radius: 12px;
 	width: 100px;
 	height: 70upx;
-	font-size: 13px;
+	font-size: 14px;
 	text-align: center;
 }
 /* 每日签到 end */
