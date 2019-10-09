@@ -1,0 +1,81 @@
+.container1 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	margin-top: 10upx;
+}
+
+.icons {
+	display: flex;
+	flex-direction: row;
+	width: 9%;
+	height: 63upx;
+}
+
+.icons image {
+	top: 5upx;
+	height: 100%;
+}
+
+.content {
+	text-align: center;
+	height: 80upx;
+
+	.icon-wrap {
+		position: relative;
+		height: 60upx;
+		top: 0;
+		box-sizing: border-box;
+
+		.icon {
+			width: 60upx;
+			height: 60upx;
+			padding: 10upx;
+			box-sizing: border-box;
+		}
+	}
+}
+
+.orderStatue {
+	display: flex;
+	flex-direction: row;
+}
+
+.orderStatueItem {
+	width: 33%;
+	height: 20%;
+	font-size: 30upx;
+
+}
+
+.movie-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+	padding: 10upx 10upx 0upx 10upx;
+}
+
+.poster-wapper {
+	display: flex;
+	flex-direction: column;
+	padding: 10upx 20upx;
+}
+
+.poster {
+	width: 200upx;
+	height: 270upx;
+}
+
+.movie-name {
+	width: 200upx;
+	margin-top: 10upx;
+	font-size: 14px;
+	font-weight: bold;
+	/* name超出则省略 */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

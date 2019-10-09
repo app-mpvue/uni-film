@@ -50,7 +50,8 @@
 				</view>
 					<!-- <trailerStars :innerScore="superhero.score" showNum="1"></trailerStars> -->
 				<!-- 电影评分 -->
-				<view class="movie-score-wapper">
+				<trailerStars :innerScore="trailer.movieScore" showNum="1"></trailerStars>
+				<!-- <view class="movie-score-wapper">
 					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
 					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
 					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
@@ -59,7 +60,7 @@
 					<view class="movie-score">
 					{{trailer.movieScore}}
 					</view>
-				</view>
+				</view> -->
 			</view>
 			
 		</view>
@@ -70,10 +71,13 @@
 </template>
 
 <script>
-import uniSearch from '../../components/lee-search/lee-search.vue';
+import uniSearch from '../../components/lee-search/lee-search.vue'
+import trailerStars from "../../components/trailerStars.vue"
+
 export default {
 	components: {
-		uniSearch
+		uniSearch,
+		trailerStars
 	},
 	data() {
 		return {
@@ -127,89 +131,90 @@ export default {
 </script>
 
 <style lang="scss">
-.container1 {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	margin-top: 10upx;
-}
-.icons {
-	display: flex;
-	flex-direction: row;
-	width: 9%;
-	height: 63upx;
-}
-.icons image {
-	top: 5upx;
-	height: 100%;
-}
-.content {
-	text-align: center;
-	height: 80upx;
-	.icon-wrap {
-		position: relative;
-		height: 60upx;
-		top: 0;
-		box-sizing: border-box;
-		.icon {
-			width: 60upx;
-			height: 60upx;
-			padding: 10upx;
-			box-sizing: border-box;
-		}
-	}
-}
-.orderStatue {
-	display: flex;
-	flex-direction: row;
-}
-
-.orderStatueItem {
-	width: 33%;
-	height:20%;
-	font-size: 30upx;
-	
-}
-.movie-list {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	
-	padding: 10upx 10upx 0upx 10upx;
-}
-.poster-wapper {
-		display: flex;
-		flex-direction: column;
-		padding: 10upx 20upx;
-	}
-	.poster {
-		width: 200upx;
-		height: 270upx;
-	}
-	.movie-name {
-		width: 200upx;
-		margin-top: 10upx;
-		font-size: 14px;
-		font-weight: bold;
-		/* name超出则省略 */
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	.movie-score-wapper {
-		display: flex;
-		flex-direction: row;
-	}
-	.star-ico {
-		width: 20upx;
-		height: 20upx;
-		margin-top: 6upx;
-	}
-	.movie-score {
-		font-size: 12upx;
-		color: red;
-		margin-left: 69.97upx;
-	}
+	@import url("movie.css");
+// .container1 {
+// 	display: flex;
+// 	flex-direction: row;
+// 	flex-wrap: nowrap;
+// 	justify-content: space-around;
+// 	margin-top: 10upx;
+// }
+// .icons {
+// 	display: flex;
+// 	flex-direction: row;
+// 	width: 9%;
+// 	height: 63upx;
+// }
+// .icons image {
+// 	top: 5upx;
+// 	height: 100%;
+// }
+// .content {
+// 	text-align: center;
+// 	height: 80upx;
+// 	.icon-wrap {
+// 		position: relative;
+// 		height: 60upx;
+// 		top: 0;
+// 		box-sizing: border-box;
+// 		.icon {
+// 			width: 60upx;
+// 			height: 60upx;
+// 			padding: 10upx;
+// 			box-sizing: border-box;
+// 		}
+// 	}
+// }
+// .orderStatue {
+// 	display: flex;
+// 	flex-direction: row;
+// }
+// 
+// .orderStatueItem {
+// 	width: 33%;
+// 	height:20%;
+// 	font-size: 30upx;
+// 	
+// }
+// .movie-list {
+// 	display: flex;
+// 	flex-direction: row;
+// 	justify-content: flex-start;
+// 	flex-wrap: wrap;
+// 	
+// 	padding: 10upx 10upx 0upx 10upx;
+// }
+// .poster-wapper {
+// 		display: flex;
+// 		flex-direction: column;
+// 		padding: 10upx 20upx;
+// 	}
+// 	.poster {
+// 		width: 200upx;
+// 		height: 270upx;
+// 	}
+// 	.movie-name {
+// 		width: 200upx;
+// 		margin-top: 10upx;
+// 		font-size: 14px;
+// 		font-weight: bold;
+// 		/* name超出则省略 */
+// 		white-space: nowrap;
+// 		overflow: hidden;
+// 		text-overflow: ellipsis;
+// 	}
+// 	.movie-score-wapper {
+// 		display: flex;
+// 		flex-direction: row;
+// 	}
+// 	.star-ico {
+// 		width: 20upx;
+// 		height: 20upx;
+// 		margin-top: 6upx;
+// 	}
+// 	.movie-score {
+// 		font-size: 12upx;
+// 		color: red;
+// 		margin-left: 69.97upx;
+// 	}
 </style>
