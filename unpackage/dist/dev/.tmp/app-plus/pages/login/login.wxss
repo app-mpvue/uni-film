@@ -1,0 +1,174 @@
+
+.content {
+	width: 100vw;
+	height: 100vh;
+	padding-bottom: 0;  
+	padding-bottom: constant(safe-area-inset-bottom); 
+	padding-bottom: env(safe-area-inset-bottom);
+	
+	display: -webkit-box;
+	
+	display: -webkit-flex;
+	
+	display: -ms-flexbox;
+	
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	/* justify-content: center; */
+	background: -webkit-gradient(linear, left top, left bottom, from(#B65A79), to(#393247));
+	background: -o-linear-gradient(#B65A79, #393247);
+	background: linear-gradient(#B65A79, #393247);
+}
+.titles{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+}
+.logo {
+	height: 80rpx;
+	width: 100rpx;
+	margin-top: 200rpx;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25rpx;
+}
+.text-area {
+	margin-top: 210rpx;
+	margin-left: 15rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.title {
+	font-size: 40rpx;
+	color: #C0C0C0;
+}
+.inputText{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.account{
+	height: 80rpx;
+	width: 700rpx;
+	margin-top: 200rpx;
+	border-radius: 20rpx;
+	text-align: center;
+}
+.btnArea{
+	margin-top: 50px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.signInBtn{
+	height: 90rpx;
+	width: 350rpx;
+	margin-top: 25rpx;
+	border-radius: 60rpx;
+	/* background-color: #555555; */
+	background-color: alpra;
+}
+.signinTxt{
+	height: vh;
+	width: vw;
+	text-align: center;
+	font-size: 20px;
+}
+.signUpTxt{
+	height: 70rpx;
+	width: 200rpx;
+	margin-top: 50rpx;
+	text-align: center;
+	font-size: 25rpx;
+	color: white;
+}
+
+/* .forget{
+	height: 10upx;
+	width: vw;
+} */
+.forgetIt{
+	font-size: 10rpx;
+	color: white;
+	margin-left: 50rpx;
+	text-align: center;
+}
+.line{
+	height: 3rpx;
+	width: 100%;
+}
+.pwd{
+	height: 60rpx;
+	width: 450rpx;
+	margin-bottom: 5rpx;
+}
+.pwdInput{
+	height: 80rpx;
+	width: 700rpx;
+	margin-top: 20rpx;
+	/* border-radius: 20upx; */
+	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+}
+.verticalLine{
+	height: 60rpx;
+	width: 3rpx;
+	margin-bottom: 5rpx;
+}
+
