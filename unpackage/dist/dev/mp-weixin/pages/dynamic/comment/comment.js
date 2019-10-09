@@ -182,7 +182,7 @@ var _default =
       userList: [],
       currentUser: {
         currentUserId: 1,
-        headsrc: "../../static/head3.jpg",
+        headsrc: "../../../static/dongtai/head3.jpg",
         name: "当前用户",
         likeNum: 2,
         commitNum: 0,
@@ -327,7 +327,7 @@ var _default =
 
 
           // this.content = nodes
-          debugger;
+          // debugger;
           console.log(result.data);
           console.log("**************");
           console.log(result.data.result);

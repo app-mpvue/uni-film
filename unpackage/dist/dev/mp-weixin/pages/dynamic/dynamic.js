@@ -313,7 +313,7 @@ var _default =
     //点击编辑
     addEdit: function addEdit() {
       uni.navigateTo({
-        url: "comment/filmReview" });
+        url: "comment/comment" });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
