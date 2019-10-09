@@ -1,5 +1,9 @@
 <template>
 	<view class="content">
+		<view class="fun-center">
+			<image src="../../static/me-icon/message.png" class="fun-icon"></image>
+			<image src="../../static/me-icon/setup.png" class="fun-icon"></image>
+		</view>
 		<view class="page-block">
 			<view class="user-info">
 				<!-- 用户头像 start -->

@@ -21,7 +21,10 @@
 			"path":"pages/login/login"
 		},
 		{
-			"path":"pages/me/me"
+			"path":"pages/me/me",
+			"style": {
+				"titleNView":false
+			}
 		},
 		{
 			"path":"pages/me/checkin/checkin"
