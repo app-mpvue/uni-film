@@ -187,12 +187,15 @@
 	.card-content{
 		display:flex;
 		justify-content: center;
-		padding: 1.5em;
+		align-items: baseline;
+		padding: 1.8em;
 	}
 	
 	.card-content-num{
+		display:flex;
 		font-size: 2.2em;
 		color: #fffffa;
+		align-items: flex-end;
 	}
 	
 	.card-content-unit{
@@ -200,7 +203,6 @@
 		font-size: 1em;
 		color: #fffffa;
 		align-items: flex-end;
-		margin-bottom: .4em;
 	}
 	
 	.card-foot{

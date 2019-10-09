@@ -67,8 +67,10 @@
 		-webkit-flex: 1;
 		flex: 1;
 		display:flex;
+		padding-top: 0.5em;
 		justify-content: center;
 		align-content:center;
+		align-items: baseline;
 	}
 	
 	.piccard-content-num{
@@ -76,7 +78,6 @@
 		font-size: 1.2em;
 		color: #fffffa;
 		align-items: center;
-		margin-bottom: .3em;
 	}
 	
 	.piccard-content-unit{
