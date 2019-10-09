@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"pages/me/checkin/priceCard":1,"pages/me/checkin/priceCardPic":1};
+/******/ 		var cssChunks = {"pages/me/checkin/priceCard":1,"components/lee-search/lee-search":1,"pages/me/checkin/priceCardPic":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"pages/me/checkin/priceCard":"pages/me/checkin/priceCard","pages/me/checkin/priceCardPic":"pages/me/checkin/priceCardPic"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"pages/me/checkin/priceCard":"pages/me/checkin/priceCard","components/lee-search/lee-search":"components/lee-search/lee-search","pages/me/checkin/priceCardPic":"pages/me/checkin/priceCardPic"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

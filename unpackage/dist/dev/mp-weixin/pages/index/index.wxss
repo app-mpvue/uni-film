@@ -1,4 +1,92 @@
 
+.tag-btn {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 50px;
+	height: 18px;
+	font-size: 0.5px;
+	text-align: center;
+	line-height: 15px;
+	color: #C8C7CC;
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+}
+.tag-flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-webkit-align-content: center;
+	    -ms-flex-line-pack: center;
+	        align-content: center;
+	margin-top: 15rpx;
+}
+.fonthiden {
+	width: 245px;
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	margin-top: 15rpx;
+}
+.item-flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-align-content: center;
+	    -ms-flex-line-pack: center;
+	        align-content: center;
+}
+.cinemaList {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-align-content: center;
+	    -ms-flex-line-pack: center;
+	        align-content: center;
+}
+.list-item {
+	width: 90%;
+	margin-top: 35rpx;
+	padding-bottom: 10rpx;
+	margin-left: 20px;
+	border-bottom: #C0C0C0;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
 .content {
 	display: -webkit-box;
 	display: -webkit-flex;

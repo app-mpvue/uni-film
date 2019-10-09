@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
 
 /***/ 0:
-/*!****************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js ***!
-  \****************************************/
+/*!*******************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15,7 +15,7 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 5));
 var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 _vue.default.config.productionTip = false;
-
+_vue.default.prototype.serverUrl = "http://45.76.105.46:8080";
 _vue.default.prototype.$store = _store.default;
 
 _App.default.mpType = 'app';
@@ -760,7 +760,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1613,9 +1613,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 11:
-/*!***********************************************!*\
-  !*** D:/git_uni_film/uni-film/store/index.js ***!
-  \***********************************************/
+/*!**************************************************!*\
+  !*** E:/github/uni-film/uni-film/store/index.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2587,9 +2587,9 @@ var index_esm = {
 /***/ }),
 
 /***/ 13:
-/*!*****************************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Fmovie%2Fmovieinfo%2Fmovieinfo"} ***!
-  \*****************************************************************************************/
+/*!****************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2597,8 +2597,8 @@ var index_esm = {
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _movieinfo = _interopRequireDefault(__webpack_require__(/*! ./pages/movie/movieinfo/movieinfo.vue */ 14));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_movieinfo.default);
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 14));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -8071,7 +8071,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8092,14 +8092,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8175,7 +8175,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8553,9 +8553,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 21:
-/*!*************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \*************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Findex%2Fcinemainfo%2Fcinemainfo"} ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8563,16 +8563,16 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
+var _cinemainfo = _interopRequireDefault(__webpack_require__(/*! ./pages/index/cinemainfo/cinemainfo.vue */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_cinemainfo.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
 
-/***/ 29:
-/*!*******************************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Findex%2Fcinemainfo%2Fcinemainfo"} ***!
-  \*******************************************************************************************/
+/***/ 27:
+/*!******************************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Fdynamic%2Fcomment%2Fcomment"} ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8580,8 +8580,8 @@ createPage(_index.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _cinemainfo = _interopRequireDefault(__webpack_require__(/*! ./pages/index/cinemainfo/cinemainfo.vue */ 30));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_cinemainfo.default);
+var _comment = _interopRequireDefault(__webpack_require__(/*! ./pages/dynamic/comment/comment.vue */ 28));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_comment.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -8618,9 +8618,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 35:
-/*!***************************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Fdynamic%2Fcomment%2Fcomment"} ***!
-  \***************************************************************************************/
+/*!********************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Fdynamic%2Fdynamic"} ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8628,45 +8628,28 @@ module.exports = g;
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _comment = _interopRequireDefault(__webpack_require__(/*! ./pages/dynamic/comment/comment.vue */ 36));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_comment.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
-
-/***/ }),
-
-/***/ 4:
-/*!*******************************************!*\
-  !*** D:/git_uni_film/uni-film/pages.json ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-
-/***/ 41:
-/*!*****************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Fdynamic%2Fdynamic"} ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _dynamic = _interopRequireDefault(__webpack_require__(/*! ./pages/dynamic/dynamic.vue */ 42));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dynamic = _interopRequireDefault(__webpack_require__(/*! ./pages/dynamic/dynamic.vue */ 36));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dynamic.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
 
-/***/ 47:
-/*!*************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
-  \*************************************************************************/
+/***/ 4:
+/*!**********************************************!*\
+  !*** E:/github/uni-film/uni-film/pages.json ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+
+/***/ 43:
+/*!****************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8674,16 +8657,16 @@ createPage(_dynamic.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ 48));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ 44));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_login.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
 
-/***/ 53:
-/*!*******************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Fme%2Fme"} ***!
-  \*******************************************************************/
+/***/ 49:
+/*!**********************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Fme%2Fme"} ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8691,16 +8674,16 @@ createPage(_login.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _me = _interopRequireDefault(__webpack_require__(/*! ./pages/me/me.vue */ 54));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _me = _interopRequireDefault(__webpack_require__(/*! ./pages/me/me.vue */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_me.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
 
-/***/ 59:
-/*!**********************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Fme%2Fcheckin%2Fcheckin"} ***!
-  \**********************************************************************************/
+/***/ 55:
+/*!*************************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Fme%2Fcheckin%2Fcheckin"} ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8708,16 +8691,16 @@ createPage(_me.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _checkin = _interopRequireDefault(__webpack_require__(/*! ./pages/me/checkin/checkin.vue */ 60));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _checkin = _interopRequireDefault(__webpack_require__(/*! ./pages/me/checkin/checkin.vue */ 56));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_checkin.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
 
-/***/ 67:
-/*!******************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Fme%2Forder%2Forder"} ***!
-  \******************************************************************************/
+/***/ 63:
+/*!*********************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Fme%2Forder%2Forder"} ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8725,16 +8708,16 @@ createPage(_checkin.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _order = _interopRequireDefault(__webpack_require__(/*! ./pages/me/order/order.vue */ 68));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _order = _interopRequireDefault(__webpack_require__(/*! ./pages/me/order/order.vue */ 64));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_order.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
 
-/***/ 73:
-/*!*************************************************************************!*\
-  !*** D:/git_uni_film/uni-film/main.js?{"page":"pages%2Fmovie%2Fmovie"} ***!
-  \*************************************************************************/
+/***/ 69:
+/*!****************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Fmovie%2Fmovie"} ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8742,8 +8725,25 @@ createPage(_order.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _movie = _interopRequireDefault(__webpack_require__(/*! ./pages/movie/movie.vue */ 74));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _movie = _interopRequireDefault(__webpack_require__(/*! ./pages/movie/movie.vue */ 70));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_movie.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 77:
+/*!********************************************************************************************!*\
+  !*** E:/github/uni-film/uni-film/main.js?{"page":"pages%2Fmovie%2Fmovieinfo%2Fmovieinfo"} ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _movieinfo = _interopRequireDefault(__webpack_require__(/*! ./pages/movie/movieinfo/movieinfo.vue */ 78));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_movieinfo.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ })
