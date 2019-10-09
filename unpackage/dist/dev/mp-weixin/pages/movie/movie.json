@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "titleNView": false,
+  "usingComponents": {
+    "uni-search": "/components/lee-search/lee-search"
+  }
 }
