@@ -5,7 +5,7 @@
 			"path": "pages/index/index",
 			// "path": "pages/filmReview/filmReview",
 			"style":{
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "电影院"
 			}
 		},
 		{
