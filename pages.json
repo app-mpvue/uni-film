@@ -2,6 +2,18 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path":"pages/login/login",
+			"style" : {
+				"navigationStyle":"custom",
+				"app-plus":{
+					// 是否展示原生标题栏
+					"titleNView":false,
+					// 是否允许页面上下滑动
+					"bounce":"none"
+				}
+			}
+		},
+		{
 			"path": "pages/index/index",
 			// "path": "pages/filmReview/filmReview",
 			"style":{
@@ -17,9 +29,7 @@
 		{
 			"path":"pages/dynamic/dynamic"
 		},
-		{
-			"path":"pages/login/login"
-		},
+		
 		{
 			"path":"pages/me/me",
 			"style": {
@@ -30,7 +40,10 @@
 			"path":"pages/me/checkin/checkin"
 		},
 		{
-			"path":"pages/me/order/order"
+			"path":"pages/me/order/order",
+			"style": {
+				"navigationBarTitleText":"我的订单"
+			}
 		},
 		{
 			"path":"pages/movie/movie",
