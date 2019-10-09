@@ -30,7 +30,7 @@
 			<!-- 用户影评以及影评图片 -->
 			<view class="commit-detail">
 				<!-- <view class="commit-detail-text">{{userObj.detail.detailText}}</view> -->
-				<navigator url="comment/filmReview">
+				<navigator url="comment/comment">
 					<view class="commit-detail-text">{{userObj.text}}</view>
 				</navigator>
 				<!-- <view class="commit-detail-text-quanwen" style="font-size: 15px; color: #DD524D;">全文</view> -->
@@ -52,7 +52,7 @@
 				<view class="like-commit" style="display: flex;flex-direction: row;">
 					<view :class="[userObj.like ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(userObj.userId)"></view>
 					<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{userObj.likeNum}}</view>
-					<navigator url="comment/filmReview">
+					<navigator url="comment/comment">
 						<view class="comment" style="display: flex;flex-direction: row;flex-wrap: nowrap;">
 							<image src="../../static/dongtai/commit.png" class="commit-bottom-commit" style="height: 20px;width:20px"></image>
 							<view class="commit-bottom-commit-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px">{{userObj.commentNum}}</view>
@@ -206,7 +206,7 @@
 			//点击编辑
 			addEdit() {
 				uni.navigateTo({
-					url: "comment/filmReview"
+					url: "comment/comment"
 				})
 			}
 		}
