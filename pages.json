@@ -31,13 +31,19 @@
 		},
 		
 		{
-			"path":"pages/me/me"
+			"path":"pages/me/me",
+			"style": {
+				"titleNView":false
+			}
 		},
 		{
 			"path":"pages/me/checkin/checkin"
 		},
 		{
-			"path":"pages/me/order/order"
+			"path":"pages/me/order/order",
+			"style": {
+				"navigationBarTitleText":"我的订单"
+			}
 		},
 		{
 			"path":"pages/movie/movie",
