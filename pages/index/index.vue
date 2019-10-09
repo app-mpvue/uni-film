@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<!-- 顶部轮播图 -->
 		<view>
 			<swiper indicator-dots="true" autoplay="true">
 				<swiper-item>
@@ -14,8 +15,10 @@
 			</swiper>
 
 		</view>
+		
+		<!-- 电影院列表 -->
 		<scroll-view class="cinemaList" scroll-y="true" show-scrollbar="true">
-			<view class="list-item" v-for="item in cinemaList">
+			<navigator class="list-item" v-for="item in cinemaList" :url="'cinemainfo/cinemainfo?cinemaId='+item.cinemaId">
 				<view class="item-flex"><span style=" font-size: 15px; font-weight: bold;">{{item.cineName}}</span><span style=" font-size: 8px;"><span
 						 style="color: #F0AD4E;">¥{{item.miniprice}}</span><span>元</span></span></view>
 				<view class="item-flex"><span style="font-size: 10px;" class="fonthiden">{{item.location}}</span><span style="font-size: 5px;color: #808080;">{{Distance}}</span></view>
@@ -25,7 +28,7 @@
 						<button :class="tagways" style="color: #C8C7CC; border-color: #C8C7CC;" size="mini" plain="true" type="default">{{tag}}</button>
 					</view>
 				</view>
-			</view>
+			</navigator>
 
 		</scroll-view>
 	</view>
@@ -53,7 +56,9 @@
 			this.getCinemaIfo();
 		},
 
-		methods: {
+		methods: {	
+			
+			//获取电影院信息
 			getCinemaIfo() {
 				uni.request({
 					url: 'http://45.76.105.46:8080/cinema/list',
@@ -65,7 +70,15 @@
 						console.log(this.cinemaList.length);
 					}
 				});
-			}
+			},
+			
+			//跳转至电影院详情页面
+			// linkToDetail(){
+			// 	uni.navigateTo({
+			// 		url: 'cinemainfo/cinemainfo?cinemaId=' + this.item.cinemaId,
+					
+			// 	})
+			// }
 
 		}
 	}
