@@ -220,7 +220,7 @@
 			            // parseImgs(nodes)
 			            // // #endif
 			            // this.content = nodes
-						debugger;
+						// debugger;
 						console.log(result.data);
 						console.log("**************")
 						console.log(result.data.result);
