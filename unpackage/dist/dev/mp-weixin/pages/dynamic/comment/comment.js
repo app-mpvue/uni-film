@@ -171,13 +171,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       // 详情页面
       inputValue: [],
-      inputValue1: '',
+      inputValue1: [],
       temple: [],
       userList: [],
       currentUser: {
@@ -186,8 +204,7 @@ var _default =
         name: "当前用户",
         likeNum: 2,
         commitNum: 0,
-        islike: false },
-
+        like: false },
 
       userReview: [] };
 
@@ -200,8 +217,6 @@ var _default =
   },
   //用于页面传参
   onLoad: function onLoad(event) {
-    // 目前在某些平台参数会被主动 decode，暂时这样处理。
-
     this.getDetail();
   },
   methods: {
@@ -231,69 +246,40 @@ var _default =
     // 点击点赞
     selectLike: function selectLike(userId) {
       if (this.userList) {
-        for (var i = 0; i < this.userList.length; i++) {
-          if (this.userList[i].userId == userId) {
-            this.userList[i].islike = !this.userList[i].islike;
-            if (this.userList[i].islike) {
-              this.userList[i].likeNum = this.userList[i].likeNum + 1;
-            } else {
-              this.userList[i].likeNum = this.userList[i].likeNum - 1;
-            }
-          }
+        // for (var i = 0; i < this.userList.length; i++) {
+        // 	if (this.userList[i].userId == userId) {
+        // 		this.userList[i].like = !this.userList[i].like
+        // 		if(this.userList[i].like) {
+        // 			this.userList[i].likeNum = this.userList[i].likeNum + 1
+        // 		}else {
+        // 			this.userList[i].likeNum = this.userList[i].likeNum - 1
+        // 		}
+        // 	}
+        // }
+        this.userList.like = !this.userList.like;
+        if (this.userList.like) {
+          this.userList.likeNum = this.userList.likeNum + 1;
+        } else {
+          this.userList.likeNum = this.userList.likeNum - 1;
         }
       }
     },
-    // 输入框输入内容
-    // onKeyInput: function(event) {
-    //     this.inputValue = event.target.value
-    // },
+    selectLikecomment: function selectLikecomment(userId)
+    {
+      if (this.inputValue1)
+      {
+        this.inputValue1.like = !this.inputValue1.like;
+      }
+    },
+    //输入评论内容
     sendText: function sendText()
     {
-      this.inputValue.push(this.temple);
-      this.temple = "";
+      if (this.temple) {
+        this.inputValue.push(this.temple);
+        this.temple = "";
+      }
+
     },
-    // 接口连接,请求数据
-    // uni.request({
-    //     url: 'http://45.76.105.46:8080/dynamic/detail', //仅为示例，并非真实接口地址。
-    //     data: {
-    //         text: 'uni.request',
-    // 		// dynamicId=this.userId
-    //     },
-    //     header: {
-    //         'custom-header': 'hello' //自定义请求头信息
-    //     },
-    //     success: (res) => {
-    //         console.log(res.data);
-    //         this.text = 'request success';
-    //     }
-    // });
-
-
-    // async request(){
-    //               var that=this
-    // 			  uni
-    //               wx.request({
-    // 				url:'http://45.76.105.46:8080/dynamic/detail',
-    // 				method:'GET',
-    // 				data:{
-    // 					// dynamicId=this.userId
-    // 					dynamicId="1",
-    // 				},
-    //                 header: {
-    //                   'content-type': 'application/json' // 默认值
-    //                 },
-    //                 success (res) {
-    //                   console.log("成功")
-    // 
-    //                 //  let tmpGood = {}
-    //                  // tmpGood.title = res.data.proName
-    //                  // tmpGood.price = res.data.proPrice
-    // 				 that.userList=res.data;
-    //                  
-    //                  console.log("##3333333"+JSON.stringify(that.userList))
-    //                 }
-    //               })
-    //             },
     // 表单提交
     formSubmit: function formSubmit(e) {
       console.log('form发出submit事件，携带数据为：' + JSON.stringify(e.detail.value));
@@ -308,44 +294,19 @@ var _default =
     getDetail: function getDetail() {var _this = this;
       var that = this;
       uni.request({
-
-        // url: 'https://unidemo.dcloud.net.cn/api/news/36kr/' + this.banner.post_id,
         url: 'http://45.76.105.46:8080/dynamic/detail',
         method: 'GET',
         data: {
           // dynamicId:this.userId,
-          dynamicId: '1' },
+          dynamicId: '2' },
 
 
         success: function success(result) {
-          // let content = FAIL_CONTENT
-          // if (result.statusCode == 200) {
-          //     content = result.data.content
-          // }
-          // const nodes = htmlParser(content);
-          //
-
-
-          // this.content = nodes
-          // debugger;
           console.log(result.data);
           console.log("**************");
           console.log(result.data.result);
           _this.userList = result.data.result;
-          // this.userList.add(result.data.result)
-          // that.userList.push(result.data.result);
           console.log("##111111111#######" + _this.userList);
-          // that.userList.detail.detailImg=result.data.result.imgs;
-          // for(var i=1;i<3;i++)
-          // {
-          // 	that.userList[0].detailImg[i]=result.data.result.imgs[i];
-          // }
-          // that.userList[0].detailText=result.data.result.text;
-          // that.userList[0].detail.detailText=result.data.result.text;
-          // that.userList[0].likeNum=result.data.result.likeNum;
-          // that.userList[0].name=result.data.result.username;
-          // that.userList=result.data.result;
-
           console.log("##3333333" + JSON.stringify(_this.userList));
 
         } });

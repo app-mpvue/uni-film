@@ -147,6 +147,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -170,6 +173,8 @@ var _default =
   },
 
   methods: {
+
+    //获取电影院信息
     getCinemaIfo: function getCinemaIfo() {var _this = this;
       uni.request({
         url: 'http://45.76.105.46:8080/cinema/list',

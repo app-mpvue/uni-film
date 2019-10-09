@@ -92,11 +92,23 @@
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-	padding: 1.5em;
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	    -ms-flex-align: baseline;
+	        align-items: baseline;
+	padding: 1.8em;
 }
 .card-content-num{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
 	font-size: 2.2em;
 	color: #fffffa;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
 }
 .card-content-unit{
 	display:-webkit-box;
@@ -109,7 +121,6 @@
 	-webkit-align-items: flex-end;
 	    -ms-flex-align: end;
 	        align-items: flex-end;
-	margin-bottom: .4em;
 }
 .card-foot{
 	display:-webkit-box;
