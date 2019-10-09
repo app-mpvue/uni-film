@@ -30,7 +30,10 @@
 			"path":"pages/me/checkin/checkin"
 		},
 		{
-			"path":"pages/me/order/order"
+			"path":"pages/me/order/order",
+			"style": {
+				"navigationBarTitleText":"我的订单"
+			}
 		},
 		{
 			"path":"pages/movie/movie",
