@@ -4,7 +4,7 @@
 	<view class="commit-items">
 		<!-- 用户头像、用户名和关注按钮 -->
 		<view class="commit-user">
-			<image src="../../static/head1.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
+			<image src="../../../static/dongtai/head1.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
 			<view class="commit-user-name" style="font-size: 15px;margin-left: 10px;">{{userList.username}}</view>
 			<button plain="true" size="default" hover-class="none" :class="[ userList.userId > 0 ? 'user-unattention':'user-isattention']"
 			 @click="clickattention(userList.userId)">+关注</button>
@@ -25,7 +25,7 @@
 			<view class="like-commit" style="display: flex;flex-direction: row;">
 				<view :class="[userObj.islike ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(userObj.userId)"></view>
 				<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{userList.likeNum}}</view>
-				<image src="../../static/commit.png" class="commit-bottom-commit" style="height: 20px;width:20px"></image>
+				<image src="../../../static/dongtai/commit.png" class="commit-bottom-commit" style="height: 20px;width:20px"></image>
 				<view class="commit-bottom-commit-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;">{{userList.commentNum}}</view>
 			</view>
 		</view>
@@ -65,10 +65,7 @@
 </template>
 
 <script>
-	import uniIcon from "@/components/uni-icon/uni-icon.vue"
-	const FAIL_CONTENT = '<p>获取信息失败1</p>';
 	export default {
-		components: {uniIcon},
 		data() {
 			return {
 				// 详情页面
@@ -83,10 +80,6 @@
 						likeNum: 2,
 						commitNum: 0,
 						islike: false, 
-						detail: {
-							detailText: "前几天写了《送我上青云》的影评，有小伙伴留言说啊，生活已经很难了，这么苦的片子实在不想去影院看。 其实这说法是很有道理的：生活这么苦，大家都想找点乐，我吃饱了撑的非要去影院看别人受苦啊？我又没有受虐妄想狂。 再说了，电影院本来就应该是给我们一个逃避现实的虚拟空间，让我们在里面爽上辣么90分钟，两个小时，等我们走出影院，可以燃气斗志，不被现实打倒，努力的生活下去。 ",
-							detailImg: ["../../static/head1.jpg", "../../static/head5.jpg","../../static/head4.jpg"]
-						},
 					},
 				
 				userReview:[],
@@ -307,13 +300,13 @@
 			width: 20px;height: 20px;
 			background-size:20px 20px;
 			background-repeat:no-repeat;
-			background-image: url(../../static/haslike.png)
+			background-image: url(../../../static/dongtai/haslike.png)
 		}
 		.commit-bottom-unlike {
 			width: 20px;height: 20px;
 			background-size:20px 20px;
 			background-repeat:no-repeat;
-			background-image: url(../../static/like.png)
+			background-image: url(../../../static/dongtai/like.png)
 		}
 		.user-unattention {
 			border-style: solid;
