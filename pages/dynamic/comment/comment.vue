@@ -23,7 +23,7 @@
 		<view class="commit-bottom">
 			<view class="" style="color: #BFBFBF;font-size: 13px;">1小时前</view>
 			<view class="like-commit" style="display: flex;flex-direction: row;">
-				<view :class="[userObj.islike ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(userObj.userId)"></view>
+				<view :class="[userList.like ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(userList.userId)"></view>
 				<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{userList.likeNum}}</view>
 				<image src="../../../static/dongtai/commit.png" class="commit-bottom-commit" style="height: 20px;width:20px"></image>
 				<view class="commit-bottom-commit-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;">{{userList.commentNum}}</view>
@@ -31,11 +31,11 @@
 		</view>
 	</view>
 	<!-- 评论区 -->
-	<view class="current-user" v-for="(inputValue1,index) in inputValue" :key=index>
-		<image src="../../static/head3.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
+	<view class="current-usercommit" v-for="(inputValue1,index) in inputValue" :key=index>
+		<image src="../../../static/dongtai/head3.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
 		<view>{{inputValue1}}</view>
 		<view class="like-commit" style="display: flex;flex-direction: row;">
-			<view :class="[inputValue1.islike ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(inputValue1.userId)"></view>
+			<view :class="[inputValue1.like ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLikecomment(inputValue1.userId)"></view>
 			<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{inputValue1.likeNum}}</view>
 		</view>
 	</view>
@@ -70,18 +70,17 @@
 			return {
 				// 详情页面
 				inputValue: [],
-				inputValue1:'',
+				inputValue1:[],
 				temple:[],
 				userList: [],
 				currentUser: {
 						currentUserId: 1,
-						headsrc: "../../static/head3.jpg",
+						headsrc: "../../../static/dongtai/head3.jpg",
 						name: "当前用户",
 						likeNum: 2,
 						commitNum: 0,
-						islike: false, 
+						like: false, 
 					},
-				
 				userReview:[],
 			}
 		},
@@ -92,9 +91,7 @@
 			this.getData(this.id);
 		},
 		//用于页面传参
-		onLoad(event) {
-		    // 目前在某些平台参数会被主动 decode，暂时这样处理。
-		    
+		onLoad(event) {		    
 		    this.getDetail();
 		},
 		methods: {
@@ -124,69 +121,37 @@
 			// 点击点赞
 			selectLike(userId) {
 				if (this.userList) {
-					for (var i = 0; i < this.userList.length; i++) {
-						if (this.userList[i].userId == userId) {
-							this.userList[i].islike = !this.userList[i].islike
-							if(this.userList[i].islike) {
-								this.userList[i].likeNum = this.userList[i].likeNum + 1
+					// for (var i = 0; i < this.userList.length; i++) {
+					// 	if (this.userList[i].userId == userId) {
+					// 		this.userList[i].like = !this.userList[i].like
+					// 		if(this.userList[i].like) {
+					// 			this.userList[i].likeNum = this.userList[i].likeNum + 1
+					// 		}else {
+					// 			this.userList[i].likeNum = this.userList[i].likeNum - 1
+					// 		}
+					// 	}
+					// }
+					this.userList.like = !this.userList.like
+					if(this.userList.like) {
+								this.userList.likeNum = this.userList.likeNum + 1
 							}else {
-								this.userList[i].likeNum = this.userList[i].likeNum - 1
+								this.userList.likeNum = this.userList.likeNum - 1
 							}
-						}
-					}
 				}
 			},
-			// 输入框输入内容
-			// onKeyInput: function(event) {
-			//     this.inputValue = event.target.value
-			// },
+			selectLikecomment(userId)
+			{
+				if(this.inputValue1)
+				{
+					this.inputValue1.like=!this.inputValue1.like
+				}
+			},
+			//输入评论内容
 			sendText()
 			{
 				this.inputValue.push(this.temple);
 				this.temple=""
 			},
-			// 接口连接,请求数据
-			// uni.request({
-			//     url: 'http://45.76.105.46:8080/dynamic/detail', //仅为示例，并非真实接口地址。
-			//     data: {
-			//         text: 'uni.request',
-			// 		// dynamicId=this.userId
-			//     },
-			//     header: {
-			//         'custom-header': 'hello' //自定义请求头信息
-			//     },
-			//     success: (res) => {
-			//         console.log(res.data);
-			//         this.text = 'request success';
-			//     }
-			// });
-			
-			
-			// async request(){
-			//               var that=this
-			// 			  uni
-			//               wx.request({
-			// 				url:'http://45.76.105.46:8080/dynamic/detail',
-			// 				method:'GET',
-			// 				data:{
-			// 					// dynamicId=this.userId
-			// 					dynamicId="1",
-			// 				},
-			//                 header: {
-			//                   'content-type': 'application/json' // 默认值
-			//                 },
-			//                 success (res) {
-			//                   console.log("成功")
-			// 
-			//                 //  let tmpGood = {}
-			//                  // tmpGood.title = res.data.proName
-			//                  // tmpGood.price = res.data.proPrice
-			// 				 that.userList=res.data;
-			//                  
-			//                  console.log("##3333333"+JSON.stringify(that.userList))
-			//                 }
-			//               })
-			//             },
 			// 表单提交
 			formSubmit:function(e){
 				console.log('form发出submit事件，携带数据为：'+JSON.stringify(e.detail.value))
@@ -201,44 +166,19 @@
 			getDetail() {
 				var that=this
 			    uni.request({
-					
-			        // url: 'https://unidemo.dcloud.net.cn/api/news/36kr/' + this.banner.post_id,
 					url: 'http://45.76.105.46:8080/dynamic/detail',
 					method:'GET',
 					data:{
 						// dynamicId:this.userId,
-						dynamicId:'1',
+						dynamicId:'2',
 						
 					},
 			        success: (result) => {
-			            // let content = FAIL_CONTENT
-			            // if (result.statusCode == 200) {
-			            //     content = result.data.content
-			            // }
-			            // const nodes = htmlParser(content);
-			            // // #ifdef APP-PLUS-NVUE
-			            // parseImgs(nodes)
-			            // // #endif
-			            // this.content = nodes
-						// debugger;
 						console.log(result.data);
 						console.log("**************")
 						console.log(result.data.result);
 						this.userList=result.data.result;
-						// this.userList.add(result.data.result)
-						// that.userList.push(result.data.result);
 						console.log("##111111111#######"+this.userList);
-						// that.userList.detail.detailImg=result.data.result.imgs;
-						// for(var i=1;i<3;i++)
-						// {
-						// 	that.userList[0].detailImg[i]=result.data.result.imgs[i];
-						// }
-						// that.userList[0].detailText=result.data.result.text;
-						// that.userList[0].detail.detailText=result.data.result.text;
-						// that.userList[0].likeNum=result.data.result.likeNum;
-						// that.userList[0].name=result.data.result.username;
-						// that.userList=result.data.result;
-						
 						console.log("##3333333"+JSON.stringify(this.userList))
 						
 			        }
@@ -264,6 +204,15 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
+	}
+	.current-usercommit{
+		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: left;
+		font-size: 8rpx;
+		
 	}
 	.current-user{
 		margin-top: 20px;
