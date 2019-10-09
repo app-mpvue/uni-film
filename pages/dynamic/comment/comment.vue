@@ -30,7 +30,25 @@
 			</view>
 		</view>
 	</view>
+	<!-- 其他人评论区 -->
+	<view class="current-usercommit" >
+		<image src="../../../static/dongtai/head5.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
+		<view>很好看</view>
+		<view class="like-commit" style="display: flex;flex-direction: row;">
+			<view :class="[inputValue1.like ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLikecomment(inputValue1.userId)"></view>
+			<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{inputValue1.likeNum}}</view>
+		</view>
+	</view>
+	<view class="current-usercommit">
+		<image src="../../../static/dongtai/head1.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
+		<view>强烈推荐</view>
+		<view class="like-commit" style="display: flex;flex-direction: row;">
+			<view :class="[inputValue1.like ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLikecomment(inputValue1.userId)"></view>
+			<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{inputValue1.likeNum}}</view>
+		</view>
+	</view>
 	<!-- 评论区 -->
+	
 	<view class="current-usercommit" v-for="(inputValue1,index) in inputValue" :key=index>
 		<image src="../../../static/dongtai/head3.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
 		<view>{{inputValue1}}</view>
@@ -149,8 +167,11 @@
 			//输入评论内容
 			sendText()
 			{
-				this.inputValue.push(this.temple);
-				this.temple=""
+				if(this.temple){
+					this.inputValue.push(this.temple);
+					this.temple=""
+				}
+				
 			},
 			// 表单提交
 			formSubmit:function(e){
@@ -211,7 +232,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: left;
-		font-size: 8rpx;
+		font-size: 20rpx;
 		
 	}
 	.current-user{

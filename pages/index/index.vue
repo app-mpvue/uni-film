@@ -18,7 +18,8 @@
 		
 		<!-- 电影院列表 -->
 		<scroll-view class="cinemaList" scroll-y="true" show-scrollbar="true">
-			<navigator class="list-item" v-for="item in cinemaList" :url="'cinemainfo/cinemainfo?cinemaId='+item.cinemaId">
+			<!-- <view class="list-item" v-for="item in cinemaList" :url="'cinemainfo/cinemainfo?cinemaId='+item.cinemaId"> -->
+			<view class="list-item" v-for="item in cinemaList" @tap="linkToDetail(item.cinemaId)">
 				<view class="item-flex"><span style=" font-size: 15px; font-weight: bold;">{{item.cineName}}</span><span style=" font-size: 8px;"><span
 						 style="color: #F0AD4E;">¥{{item.miniprice}}</span><span>元</span></span></view>
 				<view class="item-flex"><span style="font-size: 10px;" class="fonthiden">{{item.location}}</span><span style="font-size: 5px;color: #808080;">{{Distance}}</span></view>
@@ -28,7 +29,7 @@
 						<button :class="tagways" style="color: #C8C7CC; border-color: #C8C7CC;" size="mini" plain="true" type="default">{{tag}}</button>
 					</view>
 				</view>
-			</navigator>
+			</view>
 
 		</scroll-view>
 	</view>
@@ -73,12 +74,12 @@
 			},
 			
 			//跳转至电影院详情页面
-			// linkToDetail(){
-			// 	uni.navigateTo({
-			// 		url: 'cinemainfo/cinemainfo?cinemaId=' + this.item.cinemaId,
+			linkToDetail(e){
+				uni.navigateTo({
+					url: 'cinemainfo/cinemainfo?cinemaId=' + e,
 					
-			// 	})
-			// }
+				})
+			}
 
 		}
 	}

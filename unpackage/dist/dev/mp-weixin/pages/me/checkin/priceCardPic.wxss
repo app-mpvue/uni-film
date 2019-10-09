@@ -48,6 +48,7 @@
 	display:-webkit-flex;
 	display:-ms-flexbox;
 	display:flex;
+	padding-top: 0.5em;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
@@ -55,6 +56,10 @@
 	-webkit-align-content:center;
 	    -ms-flex-line-pack:center;
 	        align-content:center;
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	    -ms-flex-align: baseline;
+	        align-items: baseline;
 }
 .piccard-content-num{
 	display:-webkit-box;
@@ -67,7 +72,6 @@
 	-webkit-align-items: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	margin-bottom: .3em;
 }
 .piccard-content-unit{
 	display:-webkit-box;

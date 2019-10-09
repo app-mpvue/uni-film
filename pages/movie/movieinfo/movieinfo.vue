@@ -17,7 +17,7 @@
 			
 			<view class="picture-list-name">视频剧照</view>
 			<view class="picture-list">
-				<image :src="movieImg"></image>
+				<image src="../../../static/picture-list/s1.jpg"></image>
 				<image src="../../../static/picture-list/s2.jpg"></image>
 				<image src="../../../static/picture-list/s3.jpg"></image>
 			</view>
@@ -38,7 +38,8 @@
 				movieTime: '',
 				movieScore: '',
 				movieName: '',
-				movieImg: ''
+				movieImg: '',
+				movieId: ''
 			}
 	    },
 	    onReady: function(res) {
@@ -47,7 +48,9 @@
 	        // #endif
 	    },
 		onLoad: function(option) {
-		  this.getHomepage()
+			console.log("movieId:"+option.movieId);
+			this.movieId = option.movieId;
+			this.getHomepage()
 		},
 	    methods: {
 	        videoErrorCallback: function(e) {
@@ -59,7 +62,7 @@
 			getHomepage() {
 			  var that = this
 			  uni.request({
-			    url: 'http://45.76.105.46:8080/movie/movieDetail?movieId=1',
+			    url: 'http://45.76.105.46:8080/movie/movieDetail?movieId='+that.movieId,
 			    method: 'GET',
 			    success(res) {
 			      console.log(res.data.result)
@@ -71,7 +74,8 @@
 			    }
 			  })
 			}
-	    }
+	    },
+		
 	}
 </script>
 
