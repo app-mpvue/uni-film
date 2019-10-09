@@ -1,0 +1,153 @@
+.content {
+		height: 100vh;
+		width: 100%;
+		background-color: #FFFFFF;
+		background: url(../../static/me-icon/background3.png) repeat-x;
+		padding-bottom: 0;
+		padding-bottom: constant(safe-area-inset-bottom);  
+		padding-bottom: env(safe-area-inset-bottom); 
+		padding-top: 30upx;
+}
+
+.page-block {
+		margin: 0upx 30upx 20upx 30upx;
+		border-radius: 5%;
+		box-shadow:0 2px 0 #F8F8F8;
+		background-color: #FFFFFF;
+		flex-direction: column;
+}
+
+.user-info {
+	margin-left: 20upx;
+	margin-right: 20upx;
+	padding: 50upx 10upx 20upx 10upx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	border-bottom: solid 1px #F1F1F1;
+}
+
+/* 头像start */
+.header {
+	padding-left: 20upx;
+	width: 120upx;
+	height: 120upx;
+	border-radius: 50%;
+}
+/* 头像end */
+
+/* 用户信息 start */
+.username {
+	padding-left: 30upx;
+	padding-top: 40upx;
+	font-size: 15px;
+}
+
+.regist-login {
+	padding-left: 30upx;
+	padding-top: 40upx;
+	font-size: 15px;
+	font-weight: bold;
+}
+/* 用户信息 end */
+
+/* 每日签到 start */
+.userSign {
+	margin-top: 25upx;
+	margin-right: 30upx;
+	background-size: 7px;
+	border-radius: 12px;
+	width: 100px;
+	height: 70upx;
+	font-size: 13px;
+	text-align: center;
+}
+/* 每日签到 end */
+
+/* 用户卡券 start*/
+.userCard {
+	padding: 30upx 0upx 30upx 0upx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.card-wapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 174upx;
+}
+
+.poster {
+	width: 75upx;
+	height: 75upx;
+}
+
+.card-desc {
+	padding-top: 10upx;
+	text-align: center;
+	font-size: 14px;
+}
+/* 用户卡券 end*/
+
+/* 我的记录 start */
+.myrecords {
+	margin: 30upx 20upx 50upx 20upx;
+	padding: 20upx 10upx 0upx 10upx;
+	/* border-top: solid 1px #F1F1F1; */
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.record {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 174upx;
+}
+
+.record-icon {
+	width: 75upx;
+	height: 75upx;
+}
+/* 我的记录 end */
+
+/* 我的服务 start */
+.myservice {
+	margin: 30upx 20upx 0upx 20upx;
+	padding: 20upx 10upx 0upx 10upx;
+	border-top: solid 1px #F1F1F1;
+	padding-top: 40upx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	
+	
+}
+
+.service {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 173.9upx;
+	padding-bottom: 30upx;
+	/* flex-shrink: 0; */
+}
+
+.service-icon {
+	width: 75upx;
+	height: 75upx;
+}
+
+.service-desc {
+	padding-top: 10upx;
+	text-align: center;
+	font-size: 14px;
+}
+/* 我的服务 end */
