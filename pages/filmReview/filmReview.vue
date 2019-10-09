@@ -1,20 +1,19 @@
 <template>
 	<view class="content">
-	<!-- <view class="commit-items" v-for="(userObj,index) in userList" :key="index"> -->
-	<view class="commit-items">
+	<view class="commit-items" v-for="(userObj,index) in userList" :key="index">
 		<!-- 用户头像、用户名和关注按钮 -->
 		<view class="commit-user">
-			<image src="../../static/head1.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
-			<view class="commit-user-name" style="font-size: 15px;margin-left: 10px;">{{userList.username}}</view>
-			<button plain="true" size="default" hover-class="none" :class="[ userList.userId > 0 ? 'user-unattention':'user-isattention']"
-			 @click="clickattention(userList.userId)">+关注</button>
+			<image :src="userObj.headsrc" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
+			<view class="commit-user-name" style="font-size: 15px;margin-left: 10px;">{{userObj.name}}</view>
+			<button plain="true" size="default" hover-class="none" :class="[ userObj.userId > 0 ? 'user-unattention':'user-isattention']"
+			 @click="clickattention(userObj.userId)">+关注</button>
 		</view>
 		<!-- 用户影评以及影评图片 -->
 		<view class="commit-detail">
-			<view class="commit-detail-text">{{userList.text}}</view>
+			<view class="commit-detail-text">{{userObj.detail.detailText}}</view>
 			<!-- <view class="commit-detail-text-quanwen" style="font-size: 15px; color: #DD524D;">全文</view> -->
 			<view class="commit-detail-img">
-				<view v-for="(deTail,index) in userList.imgs" :key="index">
+				<view v-for="(deTail,index) in userObj.detail.detailImg" :key="index">
 					<image :src="deTail" class="commit-detail-imgs" style="height: 300upx; width: 300upx;padding: 10px; "></image>
 				</view>
 			</view>	
@@ -24,19 +23,19 @@
 			<view class="" style="color: #BFBFBF;font-size: 13px;">1小时前</view>
 			<view class="like-commit" style="display: flex;flex-direction: row;">
 				<view :class="[userObj.islike ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(userObj.userId)"></view>
-				<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{userList.likeNum}}</view>
+				<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{userObj.likeNum}}</view>
 				<image src="../../static/commit.png" class="commit-bottom-commit" style="height: 20px;width:20px"></image>
-				<view class="commit-bottom-commit-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;">{{userList.commentNum}}</view>
+				<view class="commit-bottom-commit-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;">{{userObj.commitNum}}</view>
 			</view>
 		</view>
 	</view>
 	<!-- 评论区 -->
-	<view class="current-user" v-for="(inputValue1,index) in inputValue" :key=index>
+	<view class="commit-user" v-for="(inputValue1,index) in inputValue" :key=index>
 		<image src="../../static/head3.jpg" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
 		<view>{{inputValue1}}</view>
 		<view class="like-commit" style="display: flex;flex-direction: row;">
 			<view :class="[inputValue1.islike ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(inputValue1.userId)"></view>
-			<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{inputValue1.likeNum}}</view>
+			<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{userObj.likeNum}}</view>
 		</view>
 	</view>
 	<!-- 当前用户头像、评论框和发送按钮 -->
@@ -72,12 +71,27 @@
 		data() {
 			return {
 				// 详情页面
-				inputValue: [],
+				inputValue: [{
+						
+						detailText: "很好看",
+					},],
 				inputValue1:'',
 				temple:[],
-				userList: [],
+				userList: [{
+						userId: 1,
+						headsrc: "../../static/head1.jpg",
+						name: "影小播",
+						likeNum: 2,
+						commitNum: 0,
+						islike: false, 
+						detail: {
+							detailText: "前几天写了《送我上青云》的影评，有小伙伴留言说啊，生活已经很难了，这么苦的片子实在不想去影院看。 其实这说法是很有道理的：生活这么苦，大家都想找点乐，我吃饱了撑的非要去影院看别人受苦啊？我又没有受虐妄想狂。 再说了，电影院本来就应该是给我们一个逃避现实的虚拟空间，让我们在里面爽上辣么90分钟，两个小时，等我们走出影院，可以燃气斗志，不被现实打倒，努力的生活下去。 ",
+							detailImg: ["../../static/head1.jpg", "../../static/head5.jpg","../../static/head4.jpg"]
+						},
+					},
+				],
 				currentUser: {
-						currentUserId: 1,
+						userId: 1,
 						headsrc: "../../static/head3.jpg",
 						name: "当前用户",
 						likeNum: 2,
@@ -101,7 +115,15 @@
 		//用于页面传参
 		onLoad(event) {
 		    // 目前在某些平台参数会被主动 decode，暂时这样处理。
-		    
+		    try {
+		        this.banner = JSON.parse(decodeURIComponent(event.query));
+		    } catch (error) {
+		        this.banner = JSON.parse(event.query);
+		    }
+		    uni.setNavigationBarTitle({
+		        title: this.banner.title
+		    });
+			//获取详细数据
 		    this.getDetail();
 		},
 		methods: {
@@ -152,48 +174,6 @@
 				this.inputValue.push(this.temple);
 				this.temple=""
 			},
-			// 接口连接,请求数据
-			// uni.request({
-			//     url: 'http://45.76.105.46:8080/dynamic/detail', //仅为示例，并非真实接口地址。
-			//     data: {
-			//         text: 'uni.request',
-			// 		// dynamicId=this.userId
-			//     },
-			//     header: {
-			//         'custom-header': 'hello' //自定义请求头信息
-			//     },
-			//     success: (res) => {
-			//         console.log(res.data);
-			//         this.text = 'request success';
-			//     }
-			// });
-			
-			
-			// async request(){
-			//               var that=this
-			// 			  uni
-			//               wx.request({
-			// 				url:'http://45.76.105.46:8080/dynamic/detail',
-			// 				method:'GET',
-			// 				data:{
-			// 					// dynamicId=this.userId
-			// 					dynamicId="1",
-			// 				},
-			//                 header: {
-			//                   'content-type': 'application/json' // 默认值
-			//                 },
-			//                 success (res) {
-			//                   console.log("成功")
-			// 
-			//                 //  let tmpGood = {}
-			//                  // tmpGood.title = res.data.proName
-			//                  // tmpGood.price = res.data.proPrice
-			// 				 that.userList=res.data;
-			//                  
-			//                  console.log("##3333333"+JSON.stringify(that.userList))
-			//                 }
-			//               })
-			//             },
 			// 表单提交
 			formSubmit:function(e){
 				console.log('form发出submit事件，携带数据为：'+JSON.stringify(e.detail.value))
@@ -206,48 +186,18 @@
 			},
 			// 得到电影细节
 			getDetail() {
-				var that=this
 			    uni.request({
-					
-			        // url: 'https://unidemo.dcloud.net.cn/api/news/36kr/' + this.banner.post_id,
-					url: 'http://45.76.105.46:8080/dynamic/detail',
-					method:'GET',
-					data:{
-						// dynamicId:this.userId,
-						dynamicId:'1',
-						
-					},
+			        url: 'https://unidemo.dcloud.net.cn/api/news/36kr/' + this.banner.post_id,
 			        success: (result) => {
-			            // let content = FAIL_CONTENT
-			            // if (result.statusCode == 200) {
-			            //     content = result.data.content
-			            // }
-			            // const nodes = htmlParser(content);
-			            // // #ifdef APP-PLUS-NVUE
-			            // parseImgs(nodes)
-			            // // #endif
-			            // this.content = nodes
-						debugger;
-						console.log(result.data);
-						console.log("**************")
-						console.log(result.data.result);
-						this.userList=result.data.result;
-						// this.userList.add(result.data.result)
-						// that.userList.push(result.data.result);
-						console.log("##111111111#######"+this.userList);
-						// that.userList.detail.detailImg=result.data.result.imgs;
-						// for(var i=1;i<3;i++)
-						// {
-						// 	that.userList[0].detailImg[i]=result.data.result.imgs[i];
-						// }
-						// that.userList[0].detailText=result.data.result.text;
-						// that.userList[0].detail.detailText=result.data.result.text;
-						// that.userList[0].likeNum=result.data.result.likeNum;
-						// that.userList[0].name=result.data.result.username;
-						// that.userList=result.data.result;
-						
-						console.log("##3333333"+JSON.stringify(this.userList))
-						
+			            let content = FAIL_CONTENT
+			            if (result.statusCode == 200) {
+			                content = result.data.content
+			            }
+			            const nodes = htmlParser(content);
+			            // #ifdef APP-PLUS-NVUE
+			            parseImgs(nodes)
+			            // #endif
+			            this.content = nodes
 			        }
 			    });
 			}
