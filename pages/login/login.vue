@@ -106,7 +106,7 @@
 		flex-direction: column;
 		align-items: center;
 		/* justify-content: center; */
-		background: linear-gradient(#B65A79, #393247);
+		background: linear-gradient(#FD691F, #FFFFFF);
 	}
 
 	.titles{
@@ -132,7 +132,7 @@
 
 	.title {
 		font-size: 40upx;
-		color: #C0C0C0;
+		color: #80827A;
 	}
 	
 	.inputText{
