@@ -32,6 +32,8 @@
 </template>
 
 <script>
+	import Vue from 'vue'
+	
 	export default {
 		data() {
 			return {
@@ -66,8 +68,8 @@
 						
 						// Vue.prototype.userId = res.data.result.userId;
 						
-						this.$userId = res.data.result.userId;
-						console.log("this.userId = " + this.$userId);
+						Vue.prototype.$userId = res.data.result.userId;
+						console.log("this.userId = " + Vue.prototype.$userId);
 						
 						uni.reLaunch({
 							url:'../index/index',
