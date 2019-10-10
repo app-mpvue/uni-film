@@ -60,7 +60,8 @@
 		{
 			"path":"pages/me/order/order",
 			"style": {
-				"navigationBarTitleText":"我的订单"
+				"navigationBarTitleText":"我的订单",
+				"navigationBarBackgroundColor":"#FD691F"
 			}
 		},
 		{

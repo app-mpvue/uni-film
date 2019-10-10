@@ -5,9 +5,10 @@ import store from './store'
 
 Vue.config.productionTip = false
 Vue.prototype.serverUrl ="http://45.76.105.46:8080";
+
 Vue.prototype.$userId = '';
 
-Vue.prototype.$store = store
+Vue.prototype.$store = store;
 
 App.mpType = 'app'
 

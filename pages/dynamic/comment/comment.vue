@@ -100,6 +100,7 @@
 						like: false, 
 					},
 				userReview:[],
+				dynamicId:'',
 			}
 		},
 		//应用周期函数，必须在APP.vue中监听
@@ -109,7 +110,9 @@
 			this.getData(this.id);
 		},
 		//用于页面传参
-		onLoad(event) {		    
+		onLoad(e) {		
+			this.dynamicId = e.userId;
+			console.log('收到的：'+ e.userId);
 		    this.getDetail();
 		},
 		methods: {
@@ -191,7 +194,7 @@
 					method:'GET',
 					data:{
 						// dynamicId:this.userId,
-						dynamicId:'2',
+						dynamicId: that.dynamicId,
 						
 					},
 			        success: (result) => {
