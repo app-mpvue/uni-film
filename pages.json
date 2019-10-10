@@ -17,17 +17,30 @@
 			"path": "pages/index/index",
 			// "path": "pages/filmReview/filmReview",
 			"style":{
-				"navigationBarTitleText": "电影院"
+				"navigationBarTitleText": "电影院",
+				"navigationBarBackgroundColor":"#FD691F"
 			}
 		},
 		{
-			"path":"pages/index/cinemainfo/cinemainfo"
+			"path":"pages/index/cinemainfo/cinemainfo",
+			"style":{
+				"navigationBarBackgroundColor":"#FD691F",
+				"navigationBarTitleText":"影院详情"
+			}
 		},
 		{
-			"path":"pages/dynamic/comment/comment"
+			"path":"pages/dynamic/comment/comment",
+			"style":{
+				"navigationBarBackgroundColor":"#FD691F",
+				"navigationBarTitleText":"动态详情"
+			}
 		},
 		{
-			"path":"pages/dynamic/dynamic"
+			"path":"pages/dynamic/dynamic",
+			"style":{
+				"navigationBarBackgroundColor":"#FD691F",
+				"navigationBarTitleText":"动态"
+			}
 		},
 		
 		{
@@ -37,7 +50,11 @@
 			}
 		},
 		{
-			"path":"pages/me/checkin/checkin"
+			"path":"pages/me/checkin/checkin",
+			"style":{
+				"navigationBarBackgroundColor":"#FD691F",
+				"navigationBarTitleText":"签到"
+			}
 		},
 		{
 			"path":"pages/me/order/order",
@@ -52,7 +69,11 @@
 			}
 		},
 		{
-			"path":"pages/movie/movieinfo/movieinfo"
+			"path":"pages/movie/movieinfo/movieinfo",
+			"style":{
+				"navigationBarBackgroundColor":"#FD691F",
+				"navigationBarTitleText":"影片详情"
+			}
 		}
 	],
 	"globalStyle": {

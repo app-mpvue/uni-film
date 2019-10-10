@@ -3,7 +3,7 @@
 		<!-- card title -->
 		<view class="piccard-title">
 			<view class="pictitle-right">
-				观影卷
+				观影券
 			</view>
 		</view>
 		<!-- card content -->
