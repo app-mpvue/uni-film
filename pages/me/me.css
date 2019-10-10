@@ -1,5 +1,5 @@
 .content {
-		height: 100vh;
+		height: 100%;
 		width: 100%;
 		background-color: #FFFFFF;
 		background: url(../../static/me-icon/background3.png) repeat-x;
@@ -163,3 +163,4 @@
 	font-size: 14px;
 }
 /* 我的服务 end */
+

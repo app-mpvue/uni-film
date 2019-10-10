@@ -46,7 +46,8 @@
 		{
 			"path":"pages/me/me",
 			"style": {
-				"titleNView":false
+				"titleNView":false,
+				"disableScroll": true
 			}
 		},
 		{
@@ -75,7 +76,15 @@
 				"navigationBarTitleText":"影片详情"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/me/setup/setup",
+            "style" : {
+				"navigationBarBackgroundColor":"#FD691F",
+				"navigationBarTitleText":"设置",
+				"disableScroll": true
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

@@ -2,7 +2,9 @@
 	<view class="content">
 		<view class="fun-center">
 			<image src="../../static/me-icon/message.png" class="fun-icon"></image>
-			<image src="../../static/me-icon/setup.png" class="fun-icon"></image>
+			<navigator url="setup/setup">
+				<image src="../../static/me-icon/setup.png" class="fun-icon"></image>
+			</navigator>
 		</view>
 		<view class="page-block">
 			<view class="user-info">
@@ -110,9 +112,7 @@
 						<text class="service-desc">帮助中心</text>
 					</view>
 				</view>
-			</view>
 		<!-- 我的服务 end -->
-		
 	</view>
 </template>
 
@@ -125,7 +125,6 @@
 			}
 		},
 		onLoad() {
-
 		},
 		methods: {
 			//点击我的签到跳转到签到页面
