@@ -6,6 +6,9 @@
 				<view class="setup-info">
 					{{item}}
 				</view>
+				<view class="arrow-block">
+					<image src="../../../static/me-icon/left-gray-arrow.png" class="arrow-ico"></image>
+				</view>
 			</view>
 		</view>
 		
@@ -13,6 +16,9 @@
 			<view class="setup-area" v-for="item in theaterinfoList">
 				<view class="setup-info">
 					{{item}}
+				</view>
+				<view class="arrow-block">
+					<image src="../../../static/me-icon/left-gray-arrow.png" class="arrow-ico"></image>
 				</view>
 			</view>
 		</view>
@@ -84,7 +90,23 @@
 	}
 	
 	.setup-info {
+		width: 30%;
 		font-size: 16px;
+	}
+	
+	.arrow-block {
+		width: 70%;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+		/* margin-left: 50upx; */
+		/* line-height: 86upx; */
+	}
+	
+	.arrow-ico {
+		width: 25upx;
+		height: 25upx;
 	}
 	/* 设置列表样式 end*/
 	
