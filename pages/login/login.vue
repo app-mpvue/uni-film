@@ -68,19 +68,15 @@
 						password:this.password,
 					},
 					success: (res) => {
-						console.log("response is " + res);
-						
-						
 						// Vue.prototype.userId = res.data.result.userId;
-						debugger;
 						me.login({
 							mainId: res.data.result.userId,
-							mainName: res.data.result.userName
+							mainName: res.data.result.username
 						})
 						
 						// Vue.prototype.$userId = res.data.result.userId;
-						console.log("this.userId = " + me.$store.state.mainId);
-						console.log("this.userId = " + me.$store.state.mainName);
+						// console.log("this.userId = " + me.$store.state.mainId);
+						// console.log("this.userName = " + me.$store.state.mainName);
 						
 						uni.reLaunch({
 							url:'../index/index',

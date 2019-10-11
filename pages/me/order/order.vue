@@ -44,43 +44,18 @@
 		},
 		methods: {
 			getOrderList() {
-				console.log("全局变量userId = " + Vue.prototype.$userId);
+				console.log("全局变量userId = " + this.$store.state.mainId);
 				uni.request({
-					url:this.$store.state.mainUrl+'/user/order/list',
+					url: this.$store.state.mainUrl + '/user/order/list',
 					methods:'GET',
 					data:{
-						userId: Vue.prototype.$userId
+						userId: this.$store.state.mainId
 					},
 					success: (res) => {
-						this.orderList = res.data.result
+						this.orderList = res.data.result,
 						console.log(res.data)
 					}
 				})
-				
-				// this.orderList.push(
-				// {	"orderId": 1,
-				// 	"cinemaId": 1,
-				// 	"cineName": "中影泰德影城",
-				// 	"location": "高新区锦业路丈八二路绿地缤纷",
-				// 	"movieId": 1,
-				// 	"movieCover": "/static/icon/大圣归来.jpg",
-				// 	"movieName": "大圣归来", 
-				// 	"showTime": "2019-09-30 星期天 11:20",
-				// 	"pieces": 2,
-				// 	"totalPrice": 72.3},
-				// {
-				// 	"orderId": 2,
-				// 	"cinemaId": 2,
-				// 	"cineName": "万达国际影城",
-				// 	"location": "高新区唐延路高新万达广场",
-				// 	"movieId": 2,
-				// 	"movieCover": "/static/icon/哪吒.jpg",
-				// 	"movieName": "哪吒之魔童降世",
-				// 	"showTime": "2019-10-01 星期一 10:30",
-				// 	"pieces": 4,
-				// 	"totalPrice": 108.9
-				// }	
-				// )
 			}
 		}
 	}

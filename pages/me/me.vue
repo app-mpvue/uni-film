@@ -21,7 +21,7 @@
 				<view v-if="userIsLogin">
 					<view class="username">
 						<!-- {{userInfo.username}} -->
-						{{mainId}}
+						{{mainName}}
 					</view>
 				</view>
 				<view v-else>
@@ -117,12 +117,21 @@
 </template>
 
 <script>
+	import Vue from 'vue';
+	import {
+		mapState,
+		mapMutations
+	} from 'vuex';
+	
 	export default {
 		data() {
 			return {
 				userIsLogin: true,
 				userInfo: []
 			}
+		},
+		computed: {
+			...mapState(['mainName','mainId'])
 		},
 		onLoad() {
 		},
