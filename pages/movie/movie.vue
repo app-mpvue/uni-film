@@ -105,7 +105,7 @@ export default {
 		var serverUrl = me.serverUrl;
 		// 查询数据列表
 		uni.request({
-			url: serverUrl + '/movie/movieList',
+			url: this.$store.state.mainUrl + '/movie/movieList',
 			method: "GET",
 			success: (res) => {
 				// 获取真实数据之前，务必判断状态是否为200

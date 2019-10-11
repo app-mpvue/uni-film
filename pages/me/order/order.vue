@@ -46,7 +46,7 @@
 			getOrderList() {
 				console.log("全局变量userId = " + Vue.prototype.$userId);
 				uni.request({
-					url:'http://45.76.105.46:8080/user/order/list',
+					url:this.$store.state.mainUrl+'/user/order/list',
 					methods:'GET',
 					data:{
 						userId: Vue.prototype.$userId
@@ -55,15 +55,8 @@
 						this.orderList = res.data.result
 						console.log(res.data)
 					}
-				}),
-				uni.request({
-					url:'http://45.76.105.46:8080/dynamic/list',
-					methods:'GET',
-					success: (res) => {
-						// this.orderList = res.data.result
-						console.log(res)
-					}
 				})
+				
 				// this.orderList.push(
 				// {	"orderId": 1,
 				// 	"cinemaId": 1,

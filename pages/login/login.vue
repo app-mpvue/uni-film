@@ -56,20 +56,23 @@
 			onClickListener(){
 				var me = this;
 				uni.request({
-					url:'http://45.76.105.46:8080/user/login',
+					url:this.$store.state.mainUrl+'/user/login',
 					method:'GET',
 					data:{
 						username:this.account,
 						password:this.password,
 					},
 					success: (res) => {
+						console.log(res.statusCode);
 						// console.log("response is " + res.data.result.userId);
 						
 						
 						// Vue.prototype.userId = res.data.result.userId;
+						debugger;
+						me.$store.commit('makeuserId',res.data.result.userId);
 						
-						Vue.prototype.$userId = res.data.result.userId;
-						console.log("this.userId = " + Vue.prototype.$userId);
+						// Vue.prototype.$userId = res.data.result.userId;
+						console.log("this.userId = " + me.$store.state.mainId);
 						
 						uni.reLaunch({
 							url:'../index/index',

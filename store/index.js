@@ -6,7 +6,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-	
+	state: {
+		mainUrl: "http://45.76.105.46:8080",
+		mainId: ''
+	},
+	mutations: {
+		makeuserId(state,userid) {
+			state.mainId = userid;
+		}
+	}
 })
 
 export default store
