@@ -32,7 +32,11 @@
 </template>
 
 <script>
-	import Vue from 'vue'
+	import Vue from 'vue';
+	import {
+		mapState,
+		mapMutations
+	} from 'vuex';
 	
 	export default {
 		data() {
@@ -53,6 +57,7 @@
 				return arr;
 			},
 			
+			...mapMutations(['login']),
 			onClickListener(){
 				var me = this;
 				uni.request({
@@ -63,16 +68,19 @@
 						password:this.password,
 					},
 					success: (res) => {
-						console.log(res.statusCode);
-						// console.log("response is " + res.data.result.userId);
+						console.log("response is " + res);
 						
 						
 						// Vue.prototype.userId = res.data.result.userId;
 						debugger;
-						me.$store.commit('makeuserId',res.data.result.userId);
+						me.login({
+							mainId: res.data.result.userId,
+							mainName: res.data.result.userName
+						})
 						
 						// Vue.prototype.$userId = res.data.result.userId;
 						console.log("this.userId = " + me.$store.state.mainId);
+						console.log("this.userId = " + me.$store.state.mainName);
 						
 						uni.reLaunch({
 							url:'../index/index',
@@ -93,7 +101,7 @@
 			},
 			
 			onRegisterListener(){
-				console.log("Vue.prototype.userId: " + this.$userId);
+				console.log("this.userId = " + me.$store.state.mainId);
 			}
 		}
 	}

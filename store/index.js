@@ -8,11 +8,14 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 	state: {
 		mainUrl: "http://45.76.105.46:8080",
+		mainName: '',
 		mainId: ''
 	},
 	mutations: {
-		makeuserId(state,userid) {
-			state.mainId = userid;
+		
+		login(state, provider) {
+			state.mainId = provider.mainId;
+			state.mainName = provider.mainName;
 		}
 	}
 })
