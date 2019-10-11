@@ -62,7 +62,7 @@
 			getHomepage() {
 			  var that = this
 			  uni.request({
-			    url: 'http://45.76.105.46:8080/movie/movieDetail?movieId='+that.movieId,
+			    url: this.$store.state.mainUrl+'/movie/movieDetail?movieId='+that.movieId,
 			    method: 'GET',
 			    success(res) {
 			      console.log(res.data.result)

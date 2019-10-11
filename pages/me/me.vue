@@ -21,7 +21,7 @@
 				<view v-if="userIsLogin">
 					<view class="username">
 						<!-- {{userInfo.username}} -->
-						001
+						{{mainId}}
 					</view>
 				</view>
 				<view v-else>

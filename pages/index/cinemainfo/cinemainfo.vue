@@ -103,7 +103,7 @@ import uniCard from "@/components/uni-card/uni-card"
 			 console.log(this.cineId11);
 			uni.request({
 				method: 'GET',
-				url: 'http://45.76.105.46:8080/cinema/detail?cinemaId='+this.cineId11,
+				url: this.$store.state.mainUrl+'/cinema/detail?cinemaId='+this.cineId11,
 				success: (res) => {
 					console.log(res.data.result.latitude);
 					this.text = 'request success';

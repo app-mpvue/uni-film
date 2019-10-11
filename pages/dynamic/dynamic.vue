@@ -151,7 +151,7 @@
 			getList(){
 				console.log("进入初始化！！")
 				uni.request({
-					url: 'http://45.76.105.46:8080/dynamic/list',
+					url: this.$store.state.mainUrl+'/dynamic/list',
 					method: 'GET',
 					success: (res) => {
 						console.log(res);
