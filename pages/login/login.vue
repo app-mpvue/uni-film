@@ -1,6 +1,7 @@
 <!-- 登录页面 By zhangshuo -->
 <template>
 	<view class="content">
+		<!-- 影城logo以及名称展示 -->
 		<view class="titles">
 			<image class="logo" src="../../static/alpra.png"></image>
 			<view class="text-area">
@@ -8,6 +9,7 @@
 			</view>
 		</view>
 		
+		<!-- 账号密码输入框 -->
 		<view class="inputText">
 			<input class="account" type="text" placeholder="输入账号" v-model="account" @input="onInput"/>
 			<image class="line" src="../../static/Unknown.jpeg"></image>
@@ -21,6 +23,7 @@
 			<image class="line" src="../../static/Unknown.jpeg"></image>
 		</view>
 		
+		<!-- 登录注册按钮 -->
 		<view class="btnArea">
 			<button class="signInBtn" @tap="onClickListener">
 				<text class="signinTxt">LOGIN</text>
@@ -202,6 +205,7 @@
 		color: white;
 		margin-left: 50upx;
 		text-align: center;
+		white-space: nowrap;
 	}
 	
 	.line{
