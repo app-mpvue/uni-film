@@ -71,7 +71,7 @@
 						// Vue.prototype.userId = res.data.result.userId;
 						me.login({
 							mainId: res.data.result.userId,
-							mainName: res.data.result.username
+							mainName: res.data.result.username,
 						})
 						
 						// Vue.prototype.$userId = res.data.result.userId;
@@ -81,7 +81,7 @@
 						uni.reLaunch({
 							url:'../index/index',
 							fail: () => {
-								console.log("界面跳转失败")
+								console.log("界面跳转失败");
 							},
 							success: () => {
 								console.log("界面跳转成功");

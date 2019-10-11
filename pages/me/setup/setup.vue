@@ -90,7 +90,7 @@
 	}
 	
 	.setup-info {
-		width: 30%;
+		width: 45%;
 		font-size: 16px;
 	}
 	

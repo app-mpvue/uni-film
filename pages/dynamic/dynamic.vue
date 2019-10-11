@@ -149,14 +149,14 @@
 		methods: {
 			//显示动态列表
 			getList(){
-				console.log("进入初始化！！")
+				console.log("进入初始化！！"),
 				uni.request({
 					url: this.$store.state.mainUrl+'/dynamic/list',
 					method: 'GET',
 					success: (res) => {
 						console.log(res);
 						this.userList = res.data.result;
-						console.log(this.userList)
+						console.log(this.userList);
 					},
 					fail: (e) => {
 						console.log(e);
@@ -180,7 +180,7 @@
 				if (this.userList) {
 					for (var i = 0; i < this.userList.length; i++) {
 						if (this.userList[i].userId == userId) {
-							this.userList[i].like = !this.userList[i].like
+							this.userList[i].like = !this.userList[i].like;
 							if(this.userList[i].like) {
 								this.userList[i].likeNum = this.userList[i].likeNum + 1
 							}else {
@@ -278,13 +278,13 @@
 		width: 20px;height: 20px;
 		background-size:20px 20px;
 		background-repeat:no-repeat;
-		background-image: url(../../static/dongtai/haslike.png)
+		background-image: url(../../static/dongtai/haslike.png);
 	}
 	.commit-bottom-unlike {
 		width: 20px;height: 20px;
 		background-size:20px 20px;
 		background-repeat:no-repeat;
-		background-image: url(../../static/dongtai/like.png)
+		background-image: url(../../static/dongtai/like.png);
 	}
 	.newedit {
 		position: fixed;
@@ -293,6 +293,6 @@
 		width: 30px;height: 30px;
 		background-size:30px 30px;
 		background-repeat:no-repeat;
-		background-image: url(../../static/dongtai/edit.png)
+		background-image: url(../../static/dongtai/edit.png);
 	}
 </style>
