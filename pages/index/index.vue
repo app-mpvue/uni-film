@@ -4,13 +4,13 @@
 		<view>
 			<swiper indicator-dots="true" autoplay="true">
 				<swiper-item>
-					<image style="width: 100%; height: 100%;" src="../../static/indexPic/微信图片_20190929142443.jpg"></image>
+					<image style="width: 100%; height: 100%;" src="../../static/indexPic/20190929142443.jpg"></image>
 				</swiper-item>
 				<swiper-item>
-					<image style="width: 100%; height: 100%;" src="../../static/indexPic/微信图片_20190929142509.jpg"></image>
+					<image style="width: 100%; height: 100%;" src="../../static/indexPic/20190929142509.jpg"></image>
 				</swiper-item>
 				<swiper-item>
-					<image style="width: 100%; height: 100%;" src="../../static/indexPic/微信图片_20190929142514.jpg"></image>
+					<image style="width: 100%; height: 100%;" src="../../static/indexPic/20190929142514.jpg"></image>
 				</swiper-item>
 			</swiper>
 
