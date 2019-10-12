@@ -41,16 +41,23 @@
 			return {
 				cinemaList: [],
 				tagways:'tag-btn',
-				Distance: '1.25km'
+				Distance: '1.25km',
+				freshTime: '',
 				}
 		},
 
 		onLoad() {
+			this.freshTime = 1;
 			this.getCinemaIfo();
 		},
 
 		onPullDownRefresh() {
 
+		},
+		
+		onReachBottom() {
+			this.freshTime +=1;
+			this.loadCinemaIfo();
 		},
 
 		onshow() {
@@ -59,11 +66,36 @@
 
 		methods: {	
 			
+			//懒加载
+			loadCinemaIfo() {
+				uni.request({
+					url: 'http://45.76.105.46:8080/cinema/list',
+					method: 'GET',
+					data: {
+						times:this.freshTime,
+					},
+					success: (res) => {
+						console.log(res.data.result);
+						for (let i = 0 ; i < res.data.result.length ; i++){
+						   this.cinemaList.push(res.data.result[i]);	
+						}
+						console.log(this.cinemaList);
+						console.log(this.cinemaList.length);
+					},
+					fail: (res) => {
+						console.log('refresh error!');
+					}
+				});
+			},
+			
 			//获取电影院信息
 			getCinemaIfo() {
 				uni.request({
 					url: 'http://45.76.105.46:8080/cinema/list',
 					method: 'GET',
+					// data:{
+					// 	times:this.freshTime,
+					// },
 					success: (res) => {
 						console.log(res.data.result);
 						this.cinemaList = res.data.result;
