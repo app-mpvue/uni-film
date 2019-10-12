@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#FD691F",
+  "navigationBarTitleText": "签到",
+  "usingComponents": {
+    "price-card": "/pages/me/checkin/priceCard"
+  }
+}

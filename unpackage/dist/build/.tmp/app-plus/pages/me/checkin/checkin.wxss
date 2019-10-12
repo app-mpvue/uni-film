@@ -1,0 +1,260 @@
+
+.sign-vue-block {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	padding: 1em;
+	background: #f8f8f8;
+}
+.sign-card{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	border-radius: .8em;
+	background: -webkit-gradient(linear,left top, right top,from(#fdca53),color-stop(70%, #fd5140));
+	background: -o-linear-gradient(left,#fdca53 0%,#fd5140 70%);
+	background: linear-gradient(to right,#fdca53 0%,#fd5140 70%);
+	-webkit-box-shadow:0 .5em .4em -0.4em #aa000333;
+	        box-shadow:0 .5em .4em -0.4em #aa000333;
+}
+.card-title{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack:justify;
+	-webkit-justify-content:space-between;
+	    -ms-flex-pack:justify;
+	        justify-content:space-between
+}
+.title-right{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding: .3em 1.45em;
+	background: #ff614e;
+	border-top-left-radius: .8em;
+	border-bottom-right-radius: 1.5em;
+	font-size: .8em;
+	color: #fffffa;
+}
+.title-left{
+	padding: .3em .4em;
+	border-top-right-radius: .8em;
+}
+.title-right-inner{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	border:solid #fffffa .1em;
+	border-radius: 5em;
+	font-size: .6em;
+	color: #fffffa;
+	padding: .3em .8em;
+}
+.card-content{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	    -ms-flex-align: baseline;
+	        align-items: baseline;
+	padding: 1.8em;
+}
+.card-content-num{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	font-size: 2.2em;
+	color: #fffffa;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+}
+.card-content-unit{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	font-size: 1em;
+	color: #fffffa;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+}
+.card-foot{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	background: -o-linear-gradient(30deg, #fdb54e 20%, #fd5140 80%);
+	background: linear-gradient(60deg, #fdb54e 20%, #fd5140 80%);
+	padding: .3em;
+	font-size: .8em;
+	color: #fffffa;
+	border-bottom-right-radius: .8em;
+	border-bottom-left-radius: .8em;
+}
+.sign-process{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	margin: 1em 0em;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.sign-process-a{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between
+}
+.sign-process-b{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	margin-top: .9em;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.sign-process-round{
+	border: solid #FF4444 .15em;
+	border-radius: 4em;
+	width: .5em;
+	height: .5em;
+}
+.sign-process-image-gift{
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0 auto;
+}
+.sign-process-across{
+	width: .8em;
+	height: 0.1em;
+	background: #FF0000;
+	margin: 0 auto;
+}
+.sign-process-span{
+	font-size: .8em;
+	white-space:nowrap;
+	margin: 0 auto;
+}
+.sign-process-block{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.sign-process-image-heart{
+	width: 0.9em;
+	height: 0.9em;
+	margin: 0 auto;
+}
+.line{
+	height: 1px;
+	background: #e2e2e2;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+.sign-vue-list{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	background: #ffffff;
+	padding : 1em;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.sign-vue-list-span{
+	font-size: 1em;
+	font-style: bold;
+}
+
+
+

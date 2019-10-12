@@ -1,0 +1,7 @@
+{
+  "titleNView": false,
+  "usingComponents": {
+    "uni-search": "/components/lee-search/lee-search",
+    "trailer-stars": "/components/trailerStars"
+  }
+}

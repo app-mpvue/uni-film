@@ -1,0 +1,137 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 设置整体背景色 start*/
+.content {
+	height: 100%;
+	width: 100vw;
+	background-color: #F8F8F8;
+	padding-top: 10rpx;
+	position: absolute;
+}
+/* 设置整体背景色 end*/
+/* 设置列表样式 start*/
+.setup-block {
+	background-color: #FFFFFF;
+	margin-top: 10rpx;
+	/* padding: 20upx; */
+}
+.setup-area {
+	padding: 25rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	border-bottom: solid 0.5px #F1F1F1;
+}
+.setup-info {
+	width: 45%;
+	font-size: 16px;
+}
+.arrow-block {
+	width: 70%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	/* margin-left: 50upx; */
+	/* line-height: 86upx; */
+}
+.arrow-ico {
+	width: 25rpx;
+	height: 25rpx;
+}
+/* 设置列表样式 end*/
+/* 退出登录 start */
+.exit {
+	margin-top: 40rpx;
+	border-radius: 20px;
+	width: 90%;
+	/* margin-bottom: -60upx; */
+}
+/* 退出登录 end */
+

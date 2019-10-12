@@ -1,0 +1,80 @@
+
+.unicard{
+	margin-bottom: 20rpx;
+}
+.fengexian{
+	width: 95%;
+	height: 1px;
+	background-color: #E6E6E6;
+	margin: 15px auto;
+}
+.swiper{
+	width: 100%;
+}
+swiper-item  image{
+	display: block;
+	width: 100%;
+}
+.map {
+	height: 400rpx;
+}
+.content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.logo {
+	height: 200rpx;
+	width: 200rpx;
+	margin-top: 200rpx;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50rpx;
+}
+.text-area {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.title {
+	font-size: 36rpx;
+	color: #8f8f94;
+}
+.moviename{
+	    width: 300px;
+	    height: 200px;
+	    position: absolute;
+	    left: 50%;
+	    margin-left: -150px;
+	    background-image: -webkit-linear-gradient(left,blue,#66ffff 10%,#cc00ff 20%,#CC00CC 30%, #CCCCFF 40%, #00FFFF 50%,#CCCCFF 60%,#CC00CC 70%,#CC00FF 80%,#66FFFF 90%,blue 100%);
+	    -webkit-text-fill-color: transparent;/* 将字体设置成透明色 */
+	    -webkit-background-clip: text;/* 裁剪背景图，使文字作为裁剪区域向外裁剪 */
+	    -webkit-background-size: 200% 100%; 
+	    -webkit-animation: masked-animation 4s linear infinite;
+	    font-size: 20px;
+}
+.sec-header{
+	width: 300rpx;
+	height: 50rpx;
+	margin-bottom: 20rpx;
+}
+

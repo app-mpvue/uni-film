@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/index/cinemainfo/cinemainfo",
+    "pages/dynamic/comment/comment",
+    "pages/dynamic/dynamic",
+    "pages/me/me",
+    "pages/me/checkin/checkin",
+    "pages/me/order/order",
+    "pages/movie/movie",
+    "pages/movie/movieinfo/movieinfo",
+    "pages/me/setup/setup"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#d81e06",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tbar/yingyuan.png",
+        "selectedIconPath": "static/tbar/yingyuans.png",
+        "text": "影院"
+      },
+      {
+        "pagePath": "pages/movie/movie",
+        "iconPath": "static/tbar/yingpian.png",
+        "selectedIconPath": "static/tbar/yingpians.png",
+        "text": "影片"
+      },
+      {
+        "pagePath": "pages/dynamic/dynamic",
+        "iconPath": "static/tbar/dongtai1.png",
+        "selectedIconPath": "static/tbar/dongtai1s.png",
+        "text": "动态"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "static/tbar/me.png",
+        "selectedIconPath": "static/tbar/mes.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "nvueCompiler": "weex",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "SPDBFilm",
+  "compilerVersion": "2.2.2",
+  "usingComponents": {}
+}
