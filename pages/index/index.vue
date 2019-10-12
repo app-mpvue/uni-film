@@ -15,7 +15,7 @@
 			</swiper>
 
 		</view>
-		
+
 		<!-- 电影院列表 -->
 		<scroll-view class="cinemaList" scroll-y="true" show-scrollbar="true">
 			<!-- <view class="list-item" v-for="item in cinemaList" :url="'cinemainfo/cinemainfo?cinemaId='+item.cinemaId"> -->
@@ -40,10 +40,11 @@
 		data() {
 			return {
 				cinemaList: [],
-				tagways:'tag-btn',
+				tagways: 'tag-btn',
 				Distance: '1.25km',
 				freshTime: '',
-				}
+				total: ''
+			}
 		},
 
 		onLoad() {
@@ -54,30 +55,40 @@
 		onPullDownRefresh() {
 
 		},
-		
+
 		onReachBottom() {
-			this.freshTime +=1;
-			this.loadCinemaIfo();
+			this.freshTime = this.freshTime + 1;
+			console.log('chudi ' + this.freshTime)
+			if(this.freshTime <= this.total){
+				this.loadCinemaIfo();
+			}else {
+				uni.showToast({
+					title: '没有更多影院啦！',
+					duration: 2000
+				
+				})
+			}
+			
 		},
 
 		onshow() {
 			this.getCinemaIfo();
 		},
 
-		methods: {	
-			
+		methods: {
+
 			//懒加载
 			loadCinemaIfo() {
 				uni.request({
-					url: 'http://45.76.105.46:8080/cinema/list',
+					url: this.$store.state.mainUrl + '/cinema/list',
 					method: 'GET',
 					data: {
-						times:this.freshTime,
+						page: this.freshTime,
 					},
 					success: (res) => {
-						console.log(res.data.result);
-						for (let i = 0 ; i < res.data.result.length ; i++){
-						   this.cinemaList.push(res.data.result[i]);	
+						console.log(res);
+						for (let i = 0; i < res.data.data.result.length; i++) {
+							this.cinemaList.push(res.data.data.result[i]);
 						}
 						console.log(this.cinemaList);
 						console.log(this.cinemaList.length);
@@ -87,29 +98,32 @@
 					}
 				});
 			},
-			
+
 			//获取电影院信息
 			getCinemaIfo() {
 				uni.request({
-					url:this.$store.state.mainUrl+'/cinema/list',
+					url: this.$store.state.mainUrl + '/cinema/list',
 					method: 'GET',
-					// data:{
-					// 	times:this.freshTime,
-					// },
+					data: {
+						page: this.freshTime,
+					},
 					success: (res) => {
-						console.log(res.data.result);
-						this.cinemaList = res.data.result;
+						console.log(res);
+						this.total = res.data.data.total
+						this.cinemaList = res.data.data.result;
 						console.log(this.cinemaList);
-						console.log(this.cinemaList.length);
+					},
+					fail: (e) => {
+						console.log(e);
 					}
 				});
 			},
-			
+
 			//跳转至电影院详情页面
-			linkToDetail(e){
+			linkToDetail(e) {
 				uni.navigateTo({
 					url: 'cinemainfo/cinemainfo?cinemaId=' + e,
-					
+
 				})
 			}
 
