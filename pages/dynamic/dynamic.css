@@ -1,0 +1,155 @@
+	/* 轮播图样式 */
+	.carousel {
+		width: 100%;
+		height: 330upx;
+	}
+
+	/* 中间评论样式 */
+	.commit-items {
+		border-top: solid 1px #F1F1F1;
+		margin-bottom: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* 用户头像、用户名和关注按钮样式 */
+	.commit-user {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	/* 用户头像样式 */
+	.commit-user-headphoto {
+		border-radius: 50%;
+		height: 40px;
+		width: 40px;
+	}
+	
+	/* 用户名样式 */
+	.commit-user-name {
+		font-size: 15px;
+		margin-left: 10px;
+	}
+
+	/* 用户已关注样式 */
+	.user-isattention {
+		visibility: hidden;
+	}
+
+	/* 用户未关注样式 */
+	.user-unattention {
+		border-style: solid;
+		border-color: #FF3333;
+		border-radius: 20%;
+		border-width: 1px;
+		text-align: center;
+		font-size: 10px;
+		color: #FF3333;
+		margin-right: 10px;
+	}
+
+	/* 用户评论文字样式 */
+	.commit-detail-text {
+		font-size: 13px;
+		line-height: 150%;
+		/* 只显示四行 */
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		overflow: hidden;
+	}
+
+	/* 用户评论图片样式 */
+	.commit-detail-img {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start; 
+	}
+	
+	/* 用户评论每张图片样式 */
+	.commit-detail-imgs {
+		height: 150upx; 
+		width: 150upx;
+		padding: 10px;
+	}
+	
+	/* 评论时间以及点赞评论样式 */
+	.commit-bottom {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+	
+	/* 评论时间样式 */
+	.commit-bottom-time {
+		color: #BFBFBF;
+		font-size: 13px;
+	}
+	
+	/* 点赞评论样式 */
+	.like-commit {
+		display: flex;
+		flex-direction: row;
+	}
+	
+	/* 已点赞按钮样式 */
+	.commit-bottom-like {
+		width: 20px;height: 20px;
+		background-size:20px 20px;
+		background-repeat:no-repeat;
+		background-image: url(../../static/dongtai/haslike.png);
+	}
+	
+	/* 未点赞按钮样式 */
+	.commit-bottom-unlike {
+		width: 20px;height: 20px;
+		background-size:20px 20px;
+		background-repeat:no-repeat;
+		background-image: url(../../static/dongtai/like.png);
+	}
+	
+	/* 点赞数样式 */
+	.commit-bottom-like-num {
+		color: #BFBFBF;
+		font-size: 16px;
+		margin-left: 5px;
+		margin-right: 10px;
+	}
+	
+	/* 评论样式 */
+	.comment {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	
+	/* 评论按钮样式 */
+	.commit-bottom-commit {
+		height: 20px;
+		width:20px
+	}
+	
+	/* 评论数样式 */
+	.commit-bottom-commit-num {
+		color: #BFBFBF;
+		font-size: 16px;
+		margin-left: 5px
+	}
+	
+/* 	.newedit {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		width: 30px;height: 30px;
+		background-size:30px 30px;
+		background-repeat:no-repeat;
+		background-image: url(../../static/dongtai/edit.png);
+	} */
