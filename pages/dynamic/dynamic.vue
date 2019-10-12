@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<!-- 顶部轮播图 -->
+		<!-- 顶部轮播图 start -->
 		<swiper :indicator-dots="true" :autoplay="true" class="carousel">
 			<swiper-item>
 				<image src="../../static/dongtai/1.jpg" class="carousel"></image>
@@ -18,16 +18,22 @@
 				<image src="../../static/dongtai/5.jpg" class="carousel"></image>
 			</swiper-item>
 		</swiper>
-		<!-- 中间评论栏 -->
+		<!-- 顶部轮播图 end -->
+		
+		<!-- 中间评论栏 start -->
 		<view class="commit-items" v-for="(userObj,userIndex) in userList" :key="userIndex">
-			<!-- 用户头像、用户名和关注按钮 -->
+			<!-- 用户头像、用户名和关注按钮 start -->
 			<view class="commit-user">
-				<image :src="userObj.imgs[0]" class="commit-user-headphoto" style="border-radius: 50%;height: 40px;width: 40px;"></image>
-				<view class="commit-user-name" style="font-size: 15px;margin-left: 10px;">{{userObj.username}}</view>
-				<button plain="true" size="default" hover-class="none" :class="[ userObj.userId > -1 ? 'user-unattention':'user-isattention']"
-				 @click="clickattention(userObj.userId)">+关注</button>
+				<image :src="userObj.imgs[userIndex]" class="commit-user-headphoto"></image>
+				<view class="commit-user-name">{{userObj.username}}</view>
+				<button plain="true" size="default" 
+				hover-class="none" 
+				:class="[ userObj.userId > -1 ? 'user-unattention':'user-isattention']"
+				@click="clickattention(userObj.userId)">+关注</button>
 			</view>
-			<!-- 用户影评以及影评图片 -->
+			<!-- 用户头像、用户名和关注按钮 end -->
+			
+			<!-- 用户影评以及影评图片 start -->
 			<view class="commit-detail">
 				<!-- <view class="commit-detail-text">{{userObj.detail.detailText}}</view> -->
 				<navigator :url="'comment/comment?userId='+ userObj.userId">
@@ -41,29 +47,31 @@
 						mode="aspectFill"
 						@click="lookMe"
 						:data-imgIndex="imgIndex"
-						:data-userIndex="userIndex"
-						style="height: 150upx; width: 150upx;padding: 10px; "></image>
+						:data-userIndex="userIndex"></image>
 					</view>
 				</view>	
 			</view>
-			<!-- 评论时间以及点赞评论 -->
+			<!-- 用户影评以及影评图片 end -->
+			
+			<!-- 评论时间以及点赞评论 start -->
 			<view class="commit-bottom">
-				<view class="" style="color: #BFBFBF;font-size: 13px;">x小时前</view>
-				<view class="like-commit" style="display: flex;flex-direction: row;">
+				<view class="commit-bottom-time">x小时前</view>
+				<view class="like-commit">
 					<view :class="[userObj.like ? 'commit-bottom-like':'commit-bottom-unlike']" @click="selectLike(userObj.userId)"></view>
-					<view class="commit-bottom-like-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px;margin-right: 10px;">{{userObj.likeNum}}</view>
+					<view class="commit-bottom-like-num">{{userObj.likeNum}}</view>
 					<navigator :url="'comment/comment?userId='+ userObj.userId">
-						<view class="comment" style="display: flex;flex-direction: row;flex-wrap: nowrap;">
-							<image src="../../static/dongtai/commit.png" class="commit-bottom-commit" style="height: 20px;width:20px"></image>
-							<view class="commit-bottom-commit-num" style="color: #BFBFBF;font-size: 16px;margin-left: 5px">{{userObj.commentNum}}</view>
+						<view class="comment">
+							<image src="../../static/dongtai/commit.png" class="commit-bottom-commit"></image>
+							<view class="commit-bottom-commit-num">{{userObj.commentNum}}</view>
 						</view>
 					</navigator>
-					
 				</view>
 			</view>
+			<!-- 评论时间以及点赞评论 end -->
 		</view>
+		<!-- 中间评论栏 end -->
 		
-		<view class="newedit" @click="addEdit">
+		<!-- <view class="newedit" @click="addEdit"> -->
 		</view>
 	</view>
 </template>
@@ -149,14 +157,14 @@
 		methods: {
 			//显示动态列表
 			getList(){
-				console.log("进入初始化！！")
+				console.log("进入初始化！！"),
 				uni.request({
-					url: 'http://45.76.105.46:8080/dynamic/list',
+					url: this.$store.state.mainUrl+'/dynamic/list',
 					method: 'GET',
 					success: (res) => {
 						console.log(res);
 						this.userList = res.data.result;
-						console.log(this.userList)
+						console.log(this.userList);
 					},
 					fail: (e) => {
 						console.log(e);
@@ -180,7 +188,7 @@
 				if (this.userList) {
 					for (var i = 0; i < this.userList.length; i++) {
 						if (this.userList[i].userId == userId) {
-							this.userList[i].like = !this.userList[i].like
+							this.userList[i].like = !this.userList[i].like;
 							if(this.userList[i].like) {
 								this.userList[i].likeNum = this.userList[i].likeNum + 1
 							}else {
@@ -204,95 +212,15 @@
 			},
 			
 			//点击编辑
-			addEdit() {
-				uni.navigateTo({
-					url: "comment/comment"
-				})
-			}
+			// addEdit() {
+			// 	uni.navigateTo({
+			// 		url: "comment/comment"
+			// 	})
+			// }
 		}
 	}
 </script>
 
 <style>
-	.carousel {
-		width: 100%;
-		height: 330upx;
-	}
-
-	.commit-items {
-		border-top: solid 1px #F1F1F1;
-		margin-bottom: 10px;
-		margin-left: 20px;
-		margin-right: 20px;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.commit-user {
-		margin-top: 20px;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.user-isattention {
-		visibility: hidden;
-	}
-
-	.user-unattention {
-		border-style: solid;
-		border-color: #FF3333;
-		border-radius: 20%;
-		border-width: 1px;
-		text-align: center;
-		font-size: 10px;
-		color: #FF3333;
-		margin-right: 10px;
-	}
-
-	.commit-detail-text {
-		font-size: 13px;
-		line-height: 150%;
-		/* 只显示四行 */
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 4;
-		overflow: hidden;
-	}
-
-	.commit-detail-img {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: flex-start;
-	}
-	.commit-bottom {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.commit-bottom-like {
-		width: 20px;height: 20px;
-		background-size:20px 20px;
-		background-repeat:no-repeat;
-		background-image: url(../../static/dongtai/haslike.png)
-	}
-	.commit-bottom-unlike {
-		width: 20px;height: 20px;
-		background-size:20px 20px;
-		background-repeat:no-repeat;
-		background-image: url(../../static/dongtai/like.png)
-	}
-	.newedit {
-		position: fixed;
-		bottom: 20px;
-		right: 20px;
-		width: 30px;height: 30px;
-		background-size:30px 30px;
-		background-repeat:no-repeat;
-		background-image: url(../../static/dongtai/edit.png)
-	}
+	@import url("dynamic.css");
 </style>

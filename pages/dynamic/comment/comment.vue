@@ -190,7 +190,7 @@
 			getDetail() {
 				var that=this
 			    uni.request({
-					url: 'http://45.76.105.46:8080/dynamic/detail',
+					url: this.$store.state.mainUrl+'/dynamic/detail',
 					method:'GET',
 					data:{
 						// dynamicId:this.userId,

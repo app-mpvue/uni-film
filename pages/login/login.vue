@@ -1,6 +1,7 @@
 <!-- 登录页面 By zhangshuo -->
 <template>
 	<view class="content">
+		<!-- 影城logo以及名称展示 -->
 		<view class="titles">
 			<image class="logo" src="../../static/alpra.png"></image>
 			<view class="text-area">
@@ -8,6 +9,7 @@
 			</view>
 		</view>
 		
+		<!-- 账号密码输入框 -->
 		<view class="inputText">
 			<input class="account" type="text" placeholder="输入账号" v-model="account" @input="onInput"/>
 			<image class="line" src="../../static/Unknown.jpeg"></image>
@@ -21,6 +23,7 @@
 			<image class="line" src="../../static/Unknown.jpeg"></image>
 		</view>
 		
+		<!-- 登录注册按钮 -->
 		<view class="btnArea">
 			<button class="signInBtn" @tap="onClickListener">
 				<text class="signinTxt">LOGIN</text>
@@ -32,6 +35,12 @@
 </template>
 
 <script>
+	import Vue from 'vue';
+	import {
+		mapState,
+		mapMutations
+	} from 'vuex';
+	
 	export default {
 		data() {
 			return {
@@ -51,28 +60,31 @@
 				return arr;
 			},
 			
+			...mapMutations(['login']),
 			onClickListener(){
 				var me = this;
 				uni.request({
-					url:'http://45.76.105.46:8080/user/login',
+					url:this.$store.state.mainUrl+'/user/login',
 					method:'GET',
 					data:{
 						username:this.account,
 						password:this.password,
 					},
 					success: (res) => {
-						// console.log("response is " + res.data.result.userId);
-						
-						
 						// Vue.prototype.userId = res.data.result.userId;
+						me.login({
+							mainId: res.data.result.userId,
+							mainName: res.data.result.username,
+						})
 						
-						this.$userId = res.data.result.userId;
-						console.log("this.userId = " + this.$userId);
+						// Vue.prototype.$userId = res.data.result.userId;
+						// console.log("this.userId = " + me.$store.state.mainId);
+						// console.log("this.userName = " + me.$store.state.mainName);
 						
 						uni.reLaunch({
 							url:'../index/index',
 							fail: () => {
-								console.log("界面跳转失败")
+								console.log("界面跳转失败");
 							},
 							success: () => {
 								console.log("界面跳转成功");
@@ -88,7 +100,7 @@
 			},
 			
 			onRegisterListener(){
-				console.log("Vue.prototype.userId: " + this.$userId);
+				console.log("this.userId = " + me.$store.state.mainId);
 			}
 		}
 	}
@@ -193,6 +205,7 @@
 		color: white;
 		margin-left: 50upx;
 		text-align: center;
+		white-space: nowrap;
 	}
 	
 	.line{

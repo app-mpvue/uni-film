@@ -2,7 +2,9 @@
 	<view class="content">
 		<view class="fun-center">
 			<image src="../../static/me-icon/message.png" class="fun-icon"></image>
-			<image src="../../static/me-icon/setup.png" class="fun-icon"></image>
+			<navigator url="setup/setup">
+				<image src="../../static/me-icon/setup.png" class="fun-icon"></image>
+			</navigator>
 		</view>
 		<view class="page-block">
 			<view class="user-info">
@@ -19,7 +21,7 @@
 				<view v-if="userIsLogin">
 					<view class="username">
 						<!-- {{userInfo.username}} -->
-						001
+						{{mainName}}
 					</view>
 				</view>
 				<view v-else>
@@ -110,13 +112,17 @@
 						<text class="service-desc">帮助中心</text>
 					</view>
 				</view>
-			</view>
 		<!-- 我的服务 end -->
-		
 	</view>
 </template>
 
 <script>
+	import Vue from 'vue';
+	import {
+		mapState,
+		mapMutations
+	} from 'vuex';
+	
 	export default {
 		data() {
 			return {
@@ -124,8 +130,10 @@
 				userInfo: []
 			}
 		},
+		computed: {
+			...mapState(['mainName','mainId'])
+		},
 		onLoad() {
-
 		},
 		methods: {
 			//点击我的签到跳转到签到页面

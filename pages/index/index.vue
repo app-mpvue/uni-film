@@ -91,7 +91,7 @@
 			//获取电影院信息
 			getCinemaIfo() {
 				uni.request({
-					url: 'http://45.76.105.46:8080/cinema/list',
+					url:this.$store.state.mainUrl+'/cinema/list',
 					method: 'GET',
 					// data:{
 					// 	times:this.freshTime,

@@ -6,11 +6,6 @@
 			<!-- 搜索框组件 -->
 			<view class="content">
 				<uni-search :iconSrc="iconSrc" :inputAttr="inputAttr">
-					<!-- <template v-slot:icon>
-						<view class="icon-wrap">
-							<image class="icon"  mode="aspectFit"  src="../../static/uni-search/icon_clear.png"></image>
-						</view>
-					</template> -->
 				</uni-search>
 			</view>
 
@@ -34,7 +29,6 @@
 		<view class="movie-list page-block">
 			<!-- 电影海报 -->
 			<view class="poster-wapper" v-for="trailer in trailerList">
-				<!-- <navigator open-type="navigate" :url="'../movie/movie?trailerId=' + superhero.id"> -->
 				<navigator open-type="navigate" :url="'../movie/movieinfo/movieinfo?movieId=' + trailer.movieId">
 					<image
 					:src="trailer.movieImg" 
@@ -42,30 +36,15 @@
 					</image>
 				</navigator>
 				
-				<!-- </navigator> -->
-				
 				<!-- 电影名称 -->
 				<view class="movie-name" style="text-align: center;">
 						{{trailer.movieName}}
 				</view>
-					<!-- <trailerStars :innerScore="superhero.score" showNum="1"></trailerStars> -->
 				<!-- 电影评分 -->
 				<trailerStars :innerScore="trailer.movieScore" showNum="1"></trailerStars>
-				<!-- <view class="movie-score-wapper">
-					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-					<image src="../../static/icos/star-yellow.png" class="star-ico"></image>
-					<image src="../../static/icos/star-gray.png" class="star-ico"></image>
-					<view class="movie-score">
-					{{trailer.movieScore}}
-					</view>
-				</view> -->
 			</view>
-			
 		</view>
 	</view>
-		
 		
 	</view>
 </template>
@@ -91,7 +70,9 @@ export default {
 				backgroundColor: '#f2f2f2',
 				placeholderText: '搜索影片和影人'
 			},
-			trailerList: []
+			trailerList: [],
+			page: 1,				// 当前第几页
+			totalPages: 1			// 总页数
 		};
 	},
 	onLoad() {
@@ -101,30 +82,73 @@ export default {
 			title:"请稍后..."
 		});
 		uni.showNavigationBarLoading();
-	
-		var serverUrl = me.serverUrl;
+
 		// 查询数据列表
 		uni.request({
-			url: serverUrl + '/movie/movieList',
+			url: this.$store.state.mainUrl + '/movie/movieList?page=1',
 			method: "GET",
 			success: (res) => {
 				// 获取真实数据之前，务必判断状态是否为200
 				if (res.data.status == 200) {
-					// debugger;
-					var trailerList = res.data.result;
+					var trailerList = res.data.data.result;
+					this.totalPages = res.data.data.total;
 					me.trailerList = trailerList;
+					
 				}
 			},
 			complete: () => {
 				uni.hideNavigationBarLoading();
 				uni.hideLoading();
-				uni.stopPullDownRefresh();
 			}
 		});
+	},
+	onReachBottom(){
+		var me = this;
+		
+		this.page = this.page + 1; //查询下一页面，当前页数累加1
+		// 如果当前需要分页的分页数和总页数相等，就不分页
+		if (this.page > this.totalPages) {
+			uni.showToast({
+				title: '没有更多的影片了',
+				icon: 'none',
+				duration: 1000
+			});
+			return;
+		}
+		me.pagedTrailerList(this.page);
 	},
 	methods: {
 		scan(data) {
 			console.log(data);
+		},
+		pagedTrailerList(page){
+			var me = this;
+			
+			uni.showLoading({
+				mask: true,
+				title: "请稍后..."
+			});
+			uni.showNavigationBarLoading();
+			
+			var serverUrl = me.serverUrl;
+			uni.request({
+				url: this.$store.state.mainUrl + '/movie/movieList?page=' + page,
+				method:"GET",
+				success: (res)=> {
+					// 获取真实数据之前，务必判断状态是否为200
+					if(res.data.status == 200) {
+						var tempList = res.data.data.result;
+						me.trailerList = me.trailerList.concat(tempList);
+						me.totalPages = res.data.data.total;	// 获取总页数
+						console.log('总页数'+totalPages);
+						me.page = page;		// 覆盖当前页面里的page
+					}
+				},
+				complete: () => {
+					uni.hideNavigationBarLoading();
+					uni.hideLoading();0
+				}
+			});
 		}
 	}
 };
@@ -132,89 +156,4 @@ export default {
 
 <style lang="scss">
 	@import url("movie.css");
-// .container1 {
-// 	display: flex;
-// 	flex-direction: row;
-// 	flex-wrap: nowrap;
-// 	justify-content: space-around;
-// 	margin-top: 10upx;
-// }
-// .icons {
-// 	display: flex;
-// 	flex-direction: row;
-// 	width: 9%;
-// 	height: 63upx;
-// }
-// .icons image {
-// 	top: 5upx;
-// 	height: 100%;
-// }
-// .content {
-// 	text-align: center;
-// 	height: 80upx;
-// 	.icon-wrap {
-// 		position: relative;
-// 		height: 60upx;
-// 		top: 0;
-// 		box-sizing: border-box;
-// 		.icon {
-// 			width: 60upx;
-// 			height: 60upx;
-// 			padding: 10upx;
-// 			box-sizing: border-box;
-// 		}
-// 	}
-// }
-// .orderStatue {
-// 	display: flex;
-// 	flex-direction: row;
-// }
-// 
-// .orderStatueItem {
-// 	width: 33%;
-// 	height:20%;
-// 	font-size: 30upx;
-// 	
-// }
-// .movie-list {
-// 	display: flex;
-// 	flex-direction: row;
-// 	justify-content: flex-start;
-// 	flex-wrap: wrap;
-// 	
-// 	padding: 10upx 10upx 0upx 10upx;
-// }
-// .poster-wapper {
-// 		display: flex;
-// 		flex-direction: column;
-// 		padding: 10upx 20upx;
-// 	}
-// 	.poster {
-// 		width: 200upx;
-// 		height: 270upx;
-// 	}
-// 	.movie-name {
-// 		width: 200upx;
-// 		margin-top: 10upx;
-// 		font-size: 14px;
-// 		font-weight: bold;
-// 		/* name超出则省略 */
-// 		white-space: nowrap;
-// 		overflow: hidden;
-// 		text-overflow: ellipsis;
-// 	}
-// 	.movie-score-wapper {
-// 		display: flex;
-// 		flex-direction: row;
-// 	}
-// 	.star-ico {
-// 		width: 20upx;
-// 		height: 20upx;
-// 		margin-top: 6upx;
-// 	}
-// 	.movie-score {
-// 		font-size: 12upx;
-// 		color: red;
-// 		margin-left: 69.97upx;
-// 	}
 </style>
